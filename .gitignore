@@ -1,0 +1,19 @@
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Node (in case any build tools were used)
+node_modules/
+npm-debug.log
+
+# Build output
+dist/
+build/
