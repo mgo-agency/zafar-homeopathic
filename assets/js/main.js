@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Send WhatsApp message
     if (sendBtn) {
         sendBtn.addEventListener('click', function() {
-            const phoneNumber = '923014724245'; // Replace with your number
+            const phoneNumber = '923156555848'; // Replace with your number
             const message = 'Hello! I need assistance with...';
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');

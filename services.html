@@ -6,11 +6,11 @@
     <title>Services - Dr. Muneeba Malik Awan | Homeopathic Clinic Lahore</title>
     <meta
       name="description"
-      content="Homeopathic treatment services for kidney stones, skin diseases, hair loss, stomach issues, blood pressure & more. Online consultations available via WhatsApp."
+      content="Homeopathic treatment services for kidney stones, skin disorders, hair loss, stomach infections, gynecological issues, infertility, piles, allergies & more. Online consultations available via WhatsApp."
     />
     <meta
       name="keywords"
-      content="homeopathic services Lahore, kidney stone treatment, skin disease treatment, hair loss treatment, online homeopathic consultation, Dr. Muneeba Malik Awan"
+      content="homeopathic services Lahore, kidney stone treatment, skin disorder treatment, hair loss treatment, gynecological issues, infertility treatment, piles treatment, online homeopathic consultation, Dr. Muneeba Malik Awan"
     />
 
     <!-- Open Graph -->
@@ -20,7 +20,7 @@
     />
     <meta
       property="og:description"
-      content="Natural, side-effect-free homeopathic treatments for kidney stones, skin diseases, hair loss, stomach issues & blood pressure."
+      content="Natural, side-effect-free homeopathic treatments for kidney stones, skin disorders, gynecological issues, infertility, piles, allergies & more."
     />
     <meta property="og:type" content="website" />
 
@@ -287,6 +287,30 @@
         opacity: 1;
       }
 
+      /* Most Booked Badge */
+      .service-card .most-booked-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: #ffffff;
+        padding: 5px 14px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        z-index: 2;
+      }
+
+      .service-card .most-booked-badge i {
+        font-size: 0.6rem;
+      }
+
       .service-card .service-icon {
         width: 70px;
         height: 70px;
@@ -488,6 +512,260 @@
       }
 
       /* ========================================
+           MEDICINES SECTION (V2)
+           ======================================== */
+      .v2-medicines {
+        padding: 70px 0 60px;
+        background: #ffffff;
+      }
+
+      .v2-medicines-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .v2-medicines-badge {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .v2-medicines-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+      }
+
+      .v2-medicines-title .v2-highlight {
+        color: #0d6efd;
+        position: relative;
+      }
+
+      .v2-medicines-title .v2-highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 2px;
+        opacity: 0.3;
+      }
+
+      .v2-medicines-subtitle {
+        color: #6c757d;
+        font-size: 1.1rem;
+        max-width: 750px;
+        margin: 0 auto;
+      }
+
+      .v2-medicine-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px 28px 32px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .v2-medicine-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(13, 110, 253, 0.1);
+        border-color: rgba(13, 110, 253, 0.1);
+      }
+
+      .v2-medicine-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .v2-medicine-card:hover::before {
+        opacity: 1;
+      }
+
+      .v2-medicine-card--featured::before {
+        opacity: 1;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+      }
+
+      .v2-medicine-card .v2-medicine-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 18px;
+        border: 3px solid rgba(13, 110, 253, 0.08);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+      }
+
+      .v2-medicine-card:hover .v2-medicine-icon {
+        border-color: #0d6efd;
+        transform: scale(1.05);
+      }
+
+      .v2-medicine-card .v2-medicine-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .v2-medicine-card .v2-medicine-badge {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 3px 14px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+      }
+
+      .v2-medicine-card .v2-medicine-badge--popular {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: #ffffff;
+      }
+
+      .v2-medicine-card .v2-medicine-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 6px;
+      }
+
+      .v2-medicine-card .v2-medicine-usage {
+        font-size: 0.9rem;
+        color: #0d6efd;
+        font-weight: 500;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      .v2-medicine-card .v2-medicine-description {
+        font-size: 0.9rem;
+        color: #6c757d;
+        line-height: 1.7;
+        margin-bottom: 15px;
+      }
+
+      .v2-medicine-card .v2-medicine-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+      }
+
+      .v2-medicine-card .v2-medicine-tags span {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(13, 110, 253, 0.06);
+        color: #0d6efd;
+        padding: 3px 12px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+
+      .v2-medicine-card .v2-medicine-tags span i {
+        font-size: 0.6rem;
+      }
+
+      /* Cautions Section */
+      .v2-cautions-card {
+        background: #fff8f0;
+        border-radius: 20px;
+        padding: 35px 40px;
+        border: 1px solid rgba(255, 193, 7, 0.15);
+      }
+
+      .v2-cautions-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .v2-cautions-header i {
+        font-size: 32px;
+        color: #ffc107;
+      }
+
+      .v2-cautions-header h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 0;
+      }
+
+      .v2-cautions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .v2-caution-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .v2-caution-item .v2-caution-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: rgba(255, 193, 7, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .v2-caution-item .v2-caution-icon i {
+        font-size: 18px;
+        color: #ffc107;
+      }
+
+      .v2-caution-item .v2-caution-content h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 2px;
+      }
+
+      .v2-caution-item .v2-caution-content p {
+        font-size: 0.85rem;
+        color: #6c757d;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+
+      /* ========================================
            CTA SECTION
            ======================================== */
       .about-cta-section {
@@ -590,6 +868,14 @@
           justify-content: center;
           margin-top: 20px;
         }
+
+        .v2-medicines-title {
+          font-size: 2rem;
+        }
+
+        .v2-cautions-grid {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
       @media (max-width: 768px) {
@@ -641,11 +927,31 @@
           justify-content: center;
           white-space: normal;
         }
+
+        .v2-medicines-title {
+          font-size: 1.6rem;
+        }
+
+        .v2-medicines-subtitle {
+          font-size: 0.95rem;
+        }
+
+        .v2-medicine-card {
+          padding: 25px 20px;
+        }
+
+        .v2-cautions-card {
+          padding: 25px 20px;
+        }
+
+        .v2-cautions-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 576px) {
         .page-title-custom {
-          padding: 10rem 0 25px;
+          padding: 100px 0 25px;
         }
 
         .page-title-custom h1 {
@@ -680,11 +986,28 @@
           font-size: 0.75rem;
           padding: 6px 14px;
         }
+
+        .v2-medicines-title {
+          font-size: 1.3rem;
+        }
+
+        .v2-medicine-card .v2-medicine-icon {
+          width: 80px;
+          height: 80px;
+        }
+
+        .v2-medicine-card .v2-medicine-name {
+          font-size: 1.1rem;
+        }
+
+        .v2-cautions-header h3 {
+          font-size: 1.1rem;
+        }
       }
 
       @media (max-width: 400px) {
         .page-title-custom {
-          padding: 9rem 0 20px;
+          padding: 90px 0 20px;
         }
 
         .page-title-custom h1 {
@@ -721,10 +1044,8 @@
             >
           </div>
           <div class="social-links d-none d-md-flex align-items-center">
-            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
             <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
       </div>
@@ -735,9 +1056,7 @@
           class="container position-relative d-flex align-items-center justify-content-between"
         >
           <a href="index.html" class="logo d-flex align-items-center">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
             <img src="assets/img/logo.png" alt="Clinic Logo" />
-            <!-- <h1 class="sitename">Clinic</h1> -->
           </a>
 
           <nav id="navmenu" class="navmenu">
@@ -746,7 +1065,6 @@
               <li><a href="about.html">About</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="services.html" class="active">Services</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -765,7 +1083,8 @@
               <h1>Our Homeopathic Services</h1>
               <p>
                 Natural, side-effect-free treatments for a wide range of health
-                conditions — from kidney stones to skin diseases and more.
+                conditions — from general physician care to specialized treatments
+                for complex issues.
               </p>
               <div class="consultation-badge">
                 <i class="bi bi-whatsapp"></i>
@@ -798,20 +1117,65 @@
           </div>
 
           <div class="row g-4">
-            <!-- Service 1: Kidney Stones -->
+            <!-- Service 1: General Physician -->
             <div
               class="col-lg-4 col-md-6"
               data-aos="fade-up"
               data-aos-delay="100"
             >
               <div class="service-card">
+                <span class="most-booked-badge">
+                  <i class="bi bi-star-fill"></i> Most Booked
+                </span>
+                <div class="service-icon">
+                  <i class="bi bi-person"></i>
+                </div>
+                <h3>General Physician</h3>
+                <p>
+                  Comprehensive healthcare for all ages. From routine checkups to
+                  chronic condition management — we treat the whole person, not
+                  just the symptoms.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Routine Checkups</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Chronic Care</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Family Health</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 2: Kidney Stones -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="service-card">
+                <span class="most-booked-badge">
+                  <i class="bi bi-star-fill"></i> Most Booked
+                </span>
                 <div class="service-icon">
                   <i class="bi bi-gem"></i>
                 </div>
                 <h3>Kidney Stones</h3>
                 <p>
                   Effective homeopathic treatment to dissolve and pass kidney
-                  stones naturally — no surgery, no side effects.
+                  stones naturally — no surgery, no side effects, no pain.
                 </p>
                 <div class="service-features">
                   <span class="feature-tag"
@@ -821,41 +1185,8 @@
                   <span class="feature-tag"
                     ><i class="bi bi-check-circle-fill"></i> Pain Relief</span
                   >
-                </div>
-                <div class="service-footer">
-                  <a href="appointment.html" class="btn-appointment">
-                    <i class="bi bi-calendar-check"></i> Book Appointment
-                  </a>
-                  <span class="fee-badge">
-                    <i class="bi bi-whatsapp"></i> Online:
-                    <strong>PKR 1,000</strong>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service 2: Gall Bladder Stones -->
-            <div
-              class="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="150"
-            >
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="bi bi-droplet-half"></i>
-                </div>
-                <h3>Gall Bladder Stones</h3>
-                <p>
-                  Natural treatment to break down gall bladder stones and
-                  restore digestive health without any surgical procedure.
-                </p>
-                <div class="service-features">
                   <span class="feature-tag"
-                    ><i class="bi bi-check-circle-fill"></i> Non-Surgical</span
-                  >
-                  <span class="feature-tag"
-                    ><i class="bi bi-check-circle-fill"></i> Digestive
-                    Care</span
+                    ><i class="bi bi-check-circle-fill"></i> No Surgery</span
                   >
                 </div>
                 <div class="service-footer">
@@ -870,7 +1201,7 @@
               </div>
             </div>
 
-            <!-- Service 3: Stomach Issues -->
+            <!-- Service 3: Skin Disorders -->
             <div
               class="col-lg-4 col-md-6"
               data-aos="fade-up"
@@ -878,49 +1209,12 @@
             >
               <div class="service-card">
                 <div class="service-icon">
-                  <i class="bi bi-stomach"></i>
-                </div>
-                <h3>Stomach Issues</h3>
-                <p>
-                  From acidity to chronic digestive problems — we treat the root
-                  cause so you feel better from the inside out.
-                </p>
-                <div class="service-features">
-                  <span class="feature-tag"
-                    ><i class="bi bi-check-circle-fill"></i> Acidity &amp;
-                    Gas</span
-                  >
-                  <span class="feature-tag"
-                    ><i class="bi bi-check-circle-fill"></i> Digestive
-                    Disorders</span
-                  >
-                </div>
-                <div class="service-footer">
-                  <a href="appointment.html" class="btn-appointment">
-                    <i class="bi bi-calendar-check"></i> Book Appointment
-                  </a>
-                  <span class="fee-badge">
-                    <i class="bi bi-whatsapp"></i> Online:
-                    <strong>PKR 1,000</strong>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service 4: Skin Diseases -->
-            <div
-              class="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay="250"
-            >
-              <div class="service-card">
-                <div class="service-icon">
                   <i class="bi bi-droplet"></i>
                 </div>
-                <h3>Skin Diseases</h3>
+                <h3>Skin Disorders</h3>
                 <p>
                   Safe, natural treatment for all skin conditions without
-                  harmful chemicals or steroids.
+                  harmful chemicals or steroids. From eczema to chronic skin problems.
                 </p>
                 <div class="service-features">
                   <span class="feature-tag"
@@ -931,6 +1225,9 @@
                     ><i class="bi bi-check-circle-fill"></i> Chronic Skin
                     Problems</span
                   >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> No Steroids</span
+                  >
                 </div>
                 <div class="service-footer">
                   <a href="appointment.html" class="btn-appointment">
@@ -944,11 +1241,11 @@
               </div>
             </div>
 
-            <!-- Service 5: Hair Growth -->
+            <!-- Service 4: Hair Growth -->
             <div
               class="col-lg-4 col-md-6"
               data-aos="fade-up"
-              data-aos-delay="300"
+              data-aos-delay="250"
             >
               <div class="service-card">
                 <div class="service-icon">
@@ -957,7 +1254,8 @@
                 <h3>Hair Growth</h3>
                 <p>
                   Homeopathic remedies that strengthen hair from the root and
-                  bring back natural, healthy growth.
+                  bring back natural, healthy growth. Effective for all types of
+                  hair loss.
                 </p>
                 <div class="service-features">
                   <span class="feature-tag"
@@ -967,6 +1265,9 @@
                   <span class="feature-tag"
                     ><i class="bi bi-check-circle-fill"></i> Scalp Health</span
                   >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Growth</span
+                  >
                 </div>
                 <div class="service-footer">
                   <a href="appointment.html" class="btn-appointment">
@@ -980,11 +1281,593 @@
               </div>
             </div>
 
-            <!-- Service 6: Blood Pressure -->
+            <!-- Service 5: Gynecological Issues -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+                <h3>Gynecological Issues</h3>
+                <p>
+                  Specialized homeopathic care for women's health — from hidden
+                  diseases to menstrual disorders and overall gynecological wellness.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Menstrual
+                    Disorders</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Hidden Diseases</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Women's Health</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 6: Piles & Hemorrhoids -->
             <div
               class="col-lg-4 col-md-6"
               data-aos="fade-up"
               data-aos-delay="350"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-exclamation-circle"></i>
+                </div>
+                <h3>Piles &amp; Hemorrhoids</h3>
+                <p>
+                  Effective natural treatment for bleeding piles, hemorrhoids, and
+                  related conditions. Gentle, non-invasive relief without surgery.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Bleeding Piles</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Hemorrhoids</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> No Surgery</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 7: Leucorrhea -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-droplet-half"></i>
+                </div>
+                <h3>Leucorrhea</h3>
+                <p>
+                  Natural homeopathic treatment for leucorrhea and vaginal
+                  discharge issues. Safe, effective, and side-effect-free.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Vaginal Discharge</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Relief</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Women's Health</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 8: Height Growth -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="450"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-arrow-up"></i>
+                </div>
+                <h3>Height Growth</h3>
+                <p>
+                  Natural homeopathic support for healthy height growth in children
+                  and adolescents. Safe, effective, and completely natural.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Growth</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Children &amp;
+                    Teens</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Safe &amp;
+                    Effective</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 9: Sugar Control -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-heart"></i>
+                </div>
+                <h3>Sugar Control</h3>
+                <p>
+                  Natural homeopathic management for blood sugar levels. Gentle,
+                  effective support for maintaining healthy glucose levels.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Blood Sugar
+                    Management</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Support</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Safe &amp;
+                    Gentle</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 10: Male & Female Infertility -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="550"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-hearts"></i>
+                </div>
+                <h3>Male &amp; Female Infertility</h3>
+                <p>
+                  Compassionate homeopathic care for couples facing infertility.
+                  Natural treatment addressing root causes for both men and women.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Male Infertility</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Female
+                    Infertility</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Treatment</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 11: Prostate -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-shield"></i>
+                </div>
+                <h3>Prostate</h3>
+                <p>
+                  Natural homeopathic treatment for prostate health. Effective
+                  relief from enlarged prostate and related urinary issues.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Enlarged Prostate</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Urinary Relief</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Treatment</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 12: Baby's Easy Teething -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="650"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-baby"></i>
+                </div>
+                <h3>Baby's Easy Teething</h3>
+                <p>
+                  Gentle homeopathic support for babies during teething. Natural
+                  relief from discomfort, irritability, and sleep disturbances.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Teething Relief</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Gentle &amp;
+                    Safe</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> For Babies</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 13: Allergies & Skin Allergies -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-flower1"></i>
+                </div>
+                <h3>Allergies &amp; Skin Allergies</h3>
+                <p>
+                  Natural homeopathic treatment for all types of allergies —
+                  seasonal, food, skin, and environmental. Gentle, lasting relief.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Seasonal
+                    Allergies</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Skin Allergies</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Food Allergies</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 14: Sinusitis -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="750"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <h3>Sinusitis</h3>
+                <p>
+                  Effective homeopathic treatment for sinusitis and chronic sinus
+                  infections. Natural relief without harmful side effects.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Sinus Relief</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Chronic Sinusitis</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Treatment</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 15: Stomach Infection -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-stomach"></i>
+                </div>
+                <h3>Stomach Infection</h3>
+                <p>
+                  Natural treatment for stomach infections, dyspepsia, indigestion,
+                  constipation, and other digestive disorders.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Dyspepsia</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Indigestion</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Constipation</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 16: Fatty Liver -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="850"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-lungs"></i>
+                </div>
+                <h3>Fatty Liver</h3>
+                <p>
+                  Natural homeopathic treatment for fatty liver and related
+                  conditions. Support liver health without harsh chemicals.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Fatty Liver</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Liver Health</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Support</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 17: Cholesterol & Triglycerides -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="900"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-activity"></i>
+                </div>
+                <h3>Cholesterol &amp; Triglycerides</h3>
+                <p>
+                  Natural homeopathic management for cholesterol and triglyceride
+                  levels. Support heart health without harmful side effects.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Cholesterol
+                    Control</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Triglycerides</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Heart Health</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 18: Intestinal Worms -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="950"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-bug"></i>
+                </div>
+                <h3>Intestinal Worms</h3>
+                <p>
+                  Gentle, effective homeopathic treatment for intestinal worms and
+                  parasitic infections. Safe for children and adults.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Worm
+                    Treatment</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Parasitic
+                    Infections</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Gentle &amp;
+                    Safe</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 19: IBS (Irritable Bowel Syndrome) -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-arrow-left-right"></i>
+                </div>
+                <h3>IBS</h3>
+                <p>
+                  Natural homeopathic treatment for Irritable Bowel Syndrome.
+                  Gentle relief from symptoms without harmful chemicals.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> IBS Relief</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Digestive Health</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Treatment</span
+                  >
+                </div>
+                <div class="service-footer">
+                  <a href="appointment.html" class="btn-appointment">
+                    <i class="bi bi-calendar-check"></i> Book Appointment
+                  </a>
+                  <span class="fee-badge">
+                    <i class="bi bi-whatsapp"></i> Online:
+                    <strong>PKR 1,000</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 20: Blood Pressure -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="1050"
             >
               <div class="service-card">
                 <div class="service-icon">
@@ -993,15 +1876,17 @@
                 <h3>Blood Pressure</h3>
                 <p>
                   Gentle, natural treatment to manage and stabilize blood
-                  pressure for long-term heart health.
+                  pressure for long-term heart health without side effects.
                 </p>
                 <div class="service-features">
                   <span class="feature-tag"
                     ><i class="bi bi-check-circle-fill"></i> BP Management</span
                   >
                   <span class="feature-tag"
-                    ><i class="bi bi-check-circle-fill"></i> Lifestyle
-                    Guidance</span
+                    ><i class="bi bi-check-circle-fill"></i> Heart Health</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Natural Support</span
                   >
                 </div>
                 <div class="service-footer">
@@ -1016,11 +1901,11 @@
               </div>
             </div>
 
-            <!-- Service 7: Online Consultation (Special) -->
+            <!-- Service 21: Online Consultation (Special) -->
             <div
               class="col-lg-4 col-md-6"
               data-aos="fade-up"
-              data-aos-delay="400"
+              data-aos-delay="1100"
             >
               <div
                 class="service-card"
@@ -1041,7 +1926,7 @@
                 <h3>Online Consultation</h3>
                 <p>
                   Can't visit the clinic? Book a WhatsApp video call with Dr.
-                  Muneeba from the comfort of your home.
+                  Muneeba from the comfort of your home. Available daily.
                 </p>
                 <div class="service-features">
                   <span
@@ -1052,6 +1937,9 @@
                   </span>
                   <span class="feature-tag"
                     ><i class="bi bi-check-circle-fill"></i> 11AM – 11PM</span
+                  >
+                  <span class="feature-tag"
+                    ><i class="bi bi-check-circle-fill"></i> Anywhere</span
                   >
                 </div>
                 <div class="service-footer">
@@ -1070,253 +1958,256 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
       <!-- ======= End Services Section ======= -->
-<!-- Medicines Section -->
-<section id="v2-medicines" class="v2-medicines section">
-    <div class="container" data-aos="fade-up">
-        <!-- Section Title -->
-        <div class="v2-medicines-header" data-aos="fade-up">
+
+      <!-- Medicines Section -->
+      <section id="v2-medicines" class="v2-medicines section">
+        <div class="container" data-aos="fade-up">
+          <!-- Section Title -->
+          <div class="v2-medicines-header" data-aos="fade-up">
             <span class="v2-medicines-badge">Our Medicines</span>
             <h2 class="v2-medicines-title">Natural <span class="v2-highlight">Healing Solutions</span></h2>
             <p class="v2-medicines-subtitle">
-                Discover our range of natural, side-effect-free homeopathic medicines for various health conditions.
-                Each medicine is carefully formulated for optimal results.
+              Discover our range of natural, side-effect-free homeopathic medicines for various health conditions.
+              Each medicine is carefully formulated for optimal results.
             </p>
-        </div>
-        <!-- End Section Title -->
+          </div>
+          <!-- End Section Title -->
 
-        <!-- Medicines Grid -->
-        <div class="row g-4">
+          <!-- Medicines Grid -->
+          <div class="row g-4">
 
             <!-- Medicine 1: Magnesium Phosphoricum -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Magnesium-Phosphoricum.jpeg" alt="Magnesium Phosphoricum" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Natural Relief</div>
-                    <h3 class="v2-medicine-name">Magnesium Phosphoricum</h3>
-                    <p class="v2-medicine-usage">For natural relief from bone and muscle pain.</p>
-                    <p class="v2-medicine-description">
-                        Effective homeopathic remedy for muscle cramps, spasms, and bone pain.
-                        Provides natural relief without side effects.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Bone Pain</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Muscle Cramps</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Natural Relief</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Magnesium-Phosphoricum.jpeg" alt="Magnesium Phosphoricum" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Natural Relief</div>
+                <h3 class="v2-medicine-name">Magnesium Phosphoricum</h3>
+                <p class="v2-medicine-usage">For natural relief from bone and muscle pain.</p>
+                <p class="v2-medicine-description">
+                  Effective homeopathic remedy for muscle cramps, spasms, and bone pain.
+                  Provides natural relief without side effects.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Bone Pain</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Muscle Cramps</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Natural Relief</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 2: Cholesterolum 112 -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                <div class="v2-medicine-card v2-medicine-card--featured">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Cholesterolum112.jpeg" alt="Cholesterolum 112" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge v2-medicine-badge--popular">Most Popular</div>
-                    <h3 class="v2-medicine-name">Cholesterolum 112</h3>
-                    <p class="v2-medicine-usage">Gall bladder stone treatment without surgery.</p>
-                    <p class="v2-medicine-description">
-                        Natural and effective treatment for gall bladder stones.
-                        Avoid surgery with our proven homeopathic formulation.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Gall Stones</span>
-                        <span><i class="bi bi-check-circle-fill"></i> No Surgery</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Natural Treatment</span>
-                    </div>
+              <div class="v2-medicine-card v2-medicine-card--featured">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Cholesterolum112.jpeg" alt="Cholesterolum 112" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge v2-medicine-badge--popular">Most Popular</div>
+                <h3 class="v2-medicine-name">Cholesterolum 112</h3>
+                <p class="v2-medicine-usage">Gall bladder stone treatment without surgery.</p>
+                <p class="v2-medicine-description">
+                  Natural and effective treatment for gall bladder stones.
+                  Avoid surgery with our proven homeopathic formulation.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Gall Stones</span>
+                  <span><i class="bi bi-check-circle-fill"></i> No Surgery</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Natural Treatment</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 3: Kamal's Cilir Syrup -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Kamal's-Cilir-Syrup.jpeg" alt="Kamal's Cilir Syrup" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Multi-Purpose</div>
-                    <h3 class="v2-medicine-name">Kamal's Cilir Syrup</h3>
-                    <p class="v2-medicine-usage">
-                        Treats H. pylori, stomach & digestive disorders. Also effective for kidney stones & viral infections.
-                    </p>
-                    <p class="v2-medicine-description">
-                        Versatile syrup effective against H. pylori, digestive issues, kidney stones,
-                        and viral infections. A complete digestive health solution.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> H. Pylori</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Digestive Health</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Kidney Stones</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Kamal's-Cilir-Syrup.jpeg" alt="Kamal's Cilir Syrup" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Multi-Purpose</div>
+                <h3 class="v2-medicine-name">Kamal's Cilir Syrup</h3>
+                <p class="v2-medicine-usage">
+                  Treats H. pylori, stomach & digestive disorders. Also effective for kidney stones & viral infections.
+                </p>
+                <p class="v2-medicine-description">
+                  Versatile syrup effective against H. pylori, digestive issues, kidney stones,
+                  and viral infections. A complete digestive health solution.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> H. Pylori</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Digestive Health</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Kidney Stones</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 4: Hepatoplant -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Hepatoplant.jpeg" alt="Hepatoplant" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Liver Care</div>
-                    <h3 class="v2-medicine-name">Hepatoplant</h3>
-                    <p class="v2-medicine-usage">Natural treatment for liver swelling & fatty liver.</p>
-                    <p class="v2-medicine-description">
-                        Supports liver health naturally. Effective for liver swelling, fatty liver,
-                        and overall liver function improvement.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Fatty Liver</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Liver Swelling</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Liver Health</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Hepatoplant.jpeg" alt="Hepatoplant" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Liver Care</div>
+                <h3 class="v2-medicine-name">Hepatoplant</h3>
+                <p class="v2-medicine-usage">Natural treatment for liver swelling & fatty liver.</p>
+                <p class="v2-medicine-description">
+                  Supports liver health naturally. Effective for liver swelling, fatty liver,
+                  and overall liver function improvement.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Fatty Liver</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Liver Swelling</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Liver Health</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 5: Kidneoplant -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Kidneoplant.jpeg" alt="Kidneoplant" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Kidney Care</div>
-                    <h3 class="v2-medicine-name">Kidneoplant</h3>
-                    <p class="v2-medicine-usage">Natural treatment for kidney & urinary tract disorders.</p>
-                    <p class="v2-medicine-description">
-                        Promotes kidney health and treats urinary tract disorders naturally.
-                        Safe and effective for long-term kidney wellness.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Kidney Health</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Urinary Tract</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Natural Treatment</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Kidneoplant.jpeg" alt="Kidneoplant" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Kidney Care</div>
+                <h3 class="v2-medicine-name">Kidneoplant</h3>
+                <p class="v2-medicine-usage">Natural treatment for kidney & urinary tract disorders.</p>
+                <p class="v2-medicine-description">
+                  Promotes kidney health and treats urinary tract disorders naturally.
+                  Safe and effective for long-term kidney wellness.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Kidney Health</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Urinary Tract</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Natural Treatment</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 6: Ornatic -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Ornatic.jpeg" alt="Ornatic" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Skin Care</div>
-                    <h3 class="v2-medicine-name">Ornatic</h3>
-                    <p class="v2-medicine-usage">Natural treatment for beautiful, glowing & attractive skin.</p>
-                    <p class="v2-medicine-description">
-                        Reveal your natural beauty with Ornatic. Promotes healthy, glowing skin
-                        through natural homeopathic ingredients.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Glowing Skin</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Skin Health</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Natural Beauty</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Ornatic.jpeg" alt="Ornatic" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Skin Care</div>
+                <h3 class="v2-medicine-name">Ornatic</h3>
+                <p class="v2-medicine-usage">Natural treatment for beautiful, glowing & attractive skin.</p>
+                <p class="v2-medicine-description">
+                  Reveal your natural beauty with Ornatic. Promotes healthy, glowing skin
+                  through natural homeopathic ingredients.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Glowing Skin</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Skin Health</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Natural Beauty</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 7: Bryorheum -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/Bryorheum.jpeg" alt="Bryorheum" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Joint Care</div>
-                    <h3 class="v2-medicine-name">Bryorheum</h3>
-                    <p class="v2-medicine-usage">Natural relief from joint pain & arthritis.</p>
-                    <p class="v2-medicine-description">
-                        Effective natural remedy for joint pain, arthritis, and inflammation.
-                        Helps improve mobility and reduce discomfort.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Joint Pain</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Arthritis</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Natural Relief</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/Bryorheum.jpeg" alt="Bryorheum" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Joint Care</div>
+                <h3 class="v2-medicine-name">Bryorheum</h3>
+                <p class="v2-medicine-usage">Natural relief from joint pain & arthritis.</p>
+                <p class="v2-medicine-description">
+                  Effective natural remedy for joint pain, arthritis, and inflammation.
+                  Helps improve mobility and reduce discomfort.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Joint Pain</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Arthritis</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Natural Relief</span>
+                </div>
+              </div>
             </div>
 
             <!-- Medicine 8: SS-08 Alfalfafort -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
-                <div class="v2-medicine-card">
-                    <div class="v2-medicine-icon">
-                        <img src="assets/img/med/SS-08-Alfalfafort.jpeg" alt="SS-08 Alfalfafort" loading="lazy">
-                    </div>
-                    <div class="v2-medicine-badge">Immunity Booster</div>
-                    <h3 class="v2-medicine-name">SS-08 Alfalfafort</h3>
-                    <p class="v2-medicine-usage">
-                        Improves appetite, boosts immunity & strengthens the body from within.
-                    </p>
-                    <p class="v2-medicine-description">
-                        Fortify your body's natural defenses. Improves appetite, boosts immunity,
-                        and strengthens overall health naturally.
-                    </p>
-                    <div class="v2-medicine-tags">
-                        <span><i class="bi bi-check-circle-fill"></i> Immunity</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Appetite</span>
-                        <span><i class="bi bi-check-circle-fill"></i> Body Strengthening</span>
-                    </div>
+              <div class="v2-medicine-card">
+                <div class="v2-medicine-icon">
+                  <img src="assets/img/med/SS-08-Alfalfafort.jpeg" alt="SS-08 Alfalfafort" loading="lazy">
                 </div>
+                <div class="v2-medicine-badge">Immunity Booster</div>
+                <h3 class="v2-medicine-name">SS-08 Alfalfafort</h3>
+                <p class="v2-medicine-usage">
+                  Improves appetite, boosts immunity & strengthens the body from within.
+                </p>
+                <p class="v2-medicine-description">
+                  Fortify your body's natural defenses. Improves appetite, boosts immunity,
+                  and strengthens overall health naturally.
+                </p>
+                <div class="v2-medicine-tags">
+                  <span><i class="bi bi-check-circle-fill"></i> Immunity</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Appetite</span>
+                  <span><i class="bi bi-check-circle-fill"></i> Body Strengthening</span>
+                </div>
+              </div>
             </div>
 
-        </div>
+          </div>
 
-        <!-- Cautions Section -->
-        <div class="row mt-5" data-aos="fade-up" data-aos-delay="500">
+          <!-- Cautions Section -->
+          <div class="row mt-5" data-aos="fade-up" data-aos-delay="500">
             <div class="col-lg-12">
-                <div class="v2-cautions-card">
-                    <div class="v2-cautions-header">
-                        <i class="bi bi-shield-exclamation"></i>
-                        <h3>Important Cautions</h3>
-                    </div>
-                    <div class="v2-cautions-grid">
-                        <div class="v2-caution-item">
-                            <div class="v2-caution-icon">
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                            </div>
-                            <div class="v2-caution-content">
-                                <h4>Keep Out of Reach</h4>
-                                <p>Keep all medicines out of the reach of children.</p>
-                            </div>
-                        </div>
-                        <div class="v2-caution-item">
-                            <div class="v2-caution-icon">
-                                <i class="bi bi-prescription"></i>
-                            </div>
-                            <div class="v2-caution-content">
-                                <h4>Doctor's Prescription</h4>
-                                <p>Always take medicines as prescribed by the doctor — do not self-medicate.</p>
-                            </div>
-                        </div>
-                        <div class="v2-caution-item">
-                            <div class="v2-caution-icon">
-                                <i class="bi bi-slash-circle"></i>
-                            </div>
-                            <div class="v2-caution-content">
-                                <h4>Do Not Exceed Dosage</h4>
-                                <p>Do not exceed the recommended dosage without consulting the doctor.</p>
-                            </div>
-                        </div>
-                        <div class="v2-caution-item">
-                            <div class="v2-caution-icon">
-                                <i class="bi bi-snow2"></i>
-                            </div>
-                            <div class="v2-caution-content">
-                                <h4>Proper Storage</h4>
-                                <p>Store medicines in a cool, dry place away from direct sunlight.</p>
-                            </div>
-                        </div>
-                    </div>
+              <div class="v2-cautions-card">
+                <div class="v2-cautions-header">
+                  <i class="bi bi-shield-exclamation"></i>
+                  <h3>Important Cautions</h3>
                 </div>
+                <div class="v2-cautions-grid">
+                  <div class="v2-caution-item">
+                    <div class="v2-caution-icon">
+                      <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <div class="v2-caution-content">
+                      <h4>Keep Out of Reach</h4>
+                      <p>Keep all medicines out of the reach of children.</p>
+                    </div>
+                  </div>
+                  <div class="v2-caution-item">
+                    <div class="v2-caution-icon">
+                      <i class="bi bi-prescription"></i>
+                    </div>
+                    <div class="v2-caution-content">
+                      <h4>Doctor's Prescription</h4>
+                      <p>Always take medicines as prescribed by the doctor — do not self-medicate.</p>
+                    </div>
+                  </div>
+                  <div class="v2-caution-item">
+                    <div class="v2-caution-icon">
+                      <i class="bi bi-slash-circle"></i>
+                    </div>
+                    <div class="v2-caution-content">
+                      <h4>Do Not Exceed Dosage</h4>
+                      <p>Do not exceed the recommended dosage without consulting the doctor.</p>
+                    </div>
+                  </div>
+                  <div class="v2-caution-item">
+                    <div class="v2-caution-icon">
+                      <i class="bi bi-snow2"></i>
+                    </div>
+                    <div class="v2-caution-content">
+                      <h4>Proper Storage</h4>
+                      <p>Store medicines in a cool, dry place away from direct sunlight.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
 
-    </div>
-</section>
+        </div>
+      </section>
+
       <!-- ======= Consultation Info Section ======= -->
       <section id="consultation-info" class="consultation-info-section">
         <div class="container" data-aos="fade-up">
@@ -1482,9 +2373,9 @@
                   <div class="contact-item">
                     <i class="bi bi-telephone"></i>
                     <a
-                      href="tel:+923014724245"
+                      href="tel:+923156555848"
                       style="color: inherit; text-decoration: none"
-                      >0301-4724245</a
+                      >0315-6555848</a
                     >
                     |
                     <a
@@ -1496,14 +2387,14 @@
                   <div class="contact-item">
                     <i class="bi bi-whatsapp"></i>
                     <a
-                      href="https://wa.me/923014724245"
+                      href="https://wa.me/923156555848"
                       target="_blank"
                       style="
                         color: #25d366;
                         text-decoration: none;
                         font-weight: 500;
                       "
-                      >WhatsApp: 0301-4724245</a
+                      >WhatsApp: 0315-6555848</a
                     >
                   </div>
                   <div class="contact-item">
@@ -1538,14 +2429,10 @@
                       <h6>Our Services</h6>
                       <nav class="footer-nav">
                         <a href="services.html#kidney-stones">Kidney Stones</a>
-                        <a href="services.html#skin-diseases">Skin Diseases</a>
-                        <a href="services.html#hair-loss">Hair Loss</a>
-                        <a href="services.html#stomach-issues"
-                          >Stomach Issues</a
-                        >
-                        <a href="services.html#blood-pressure"
-                          >Blood Pressure</a
-                        >
+                        <a href="services.html#skin-disorders">Skin Disorders</a>
+                        <a href="services.html#hair-growth">Hair Growth</a>
+                        <a href="services.html#stomach-infection">Stomach Infection</a>
+                        <a href="services.html#blood-pressure">Blood Pressure</a>
                       </nav>
                     </div>
                   </div>
@@ -1555,10 +2442,10 @@
                     <div class="nav-column">
                       <h6>Connect With Us</h6>
                       <nav class="footer-nav">
-                        <a href="https://wa.me/923014724245" target="_blank">
+                        <a href="https://wa.me/923156555848" target="_blank">
                           <i class="bi bi-whatsapp me-1"></i> WhatsApp
                         </a>
-                        <a href="tel:+923014724245">
+                        <a href="tel:+923156555848">
                           <i class="bi bi-telephone me-1"></i> Call Now
                         </a>
                         <a
@@ -1614,7 +2501,6 @@
               </div>
               <div class="col-lg-6">
                 <div class="legal-links">
-                  <a href="privacy.html">Privacy Policy</a>
                   <a href="terms.html">Terms of Service</a>
                   <a href="contact.html">Contact Us</a>
                 </div>
