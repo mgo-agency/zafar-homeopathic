@@ -115,7 +115,6 @@
       .page-title-custom {
         background: linear-gradient(135deg, #0d6efd, #0a58ca);
         padding: 160px 0 60px;
-        /* Increased top padding for desktop */
         position: relative;
         overflow: hidden;
         margin-top: 0;
@@ -522,6 +521,147 @@
       }
 
       /* ========================================
+           TEAM SECTION
+           ======================================== */
+      .team-section {
+        padding: 70px 0 80px;
+        background: #ffffff;
+      }
+
+      .team-section .section-badge {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .team-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+      }
+
+      .team-section h2 .highlight {
+        color: #0d6efd;
+        position: relative;
+      }
+
+      .team-section h2 .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 2px;
+        opacity: 0.3;
+      }
+
+      .team-section .section-subtitle {
+        color: #6c757d;
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+      }
+
+      .team-member-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px 25px 28px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s ease;
+        height: 100%;
+      }
+
+      .team-member-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(13, 110, 253, 0.1);
+        border-color: rgba(13, 110, 253, 0.1);
+      }
+
+      .team-member-card .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 18px;
+        border: 4px solid rgba(13, 110, 253, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .team-member-card:hover .team-avatar {
+        border-color: #0d6efd;
+        transform: scale(1.03);
+      }
+
+      .team-member-card .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-member-card .team-avatar .avatar-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0d6efd, #0a58ca);
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .team-member-card .team-role-badge {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 3px 16px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+      }
+
+      .team-member-card .team-role-badge.founder {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: #ffffff;
+      }
+
+      .team-member-card h4 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 4px;
+      }
+
+      .team-member-card .team-designation {
+        font-size: 0.9rem;
+        color: #0d6efd;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+
+      .team-member-card .team-bio {
+        font-size: 0.85rem;
+        color: #6c757d;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* ========================================
            CTA SECTION - IMPROVED ALIGNMENT
            ======================================== */
       .about-cta-section {
@@ -600,11 +740,9 @@
            RESPONSIVE FIXES - NAVBAR OVERLAP
            ======================================== */
 
-      /* Medium devices (tablets, 768px and up) */
       @media (max-width: 991px) {
         .page-title-custom {
           padding: 140px 0 50px;
-          /* Adjusted for tablet */
         }
 
         .page-title-custom h1 {
@@ -613,7 +751,8 @@
 
         .about-story h2,
         .qualifications-section h2,
-        .specialties-section h2 {
+        .specialties-section h2,
+        .team-section h2 {
           font-size: 2rem;
         }
 
@@ -629,13 +768,16 @@
           justify-content: center;
           margin-top: 20px;
         }
+
+        .team-member-card .team-avatar {
+          width: 100px;
+          height: 100px;
+        }
       }
 
-      /* Small devices (landscape phones, 576px and up) */
       @media (max-width: 768px) {
         .page-title-custom {
           padding: 120px 0 40px;
-          /* Adjusted for mobile */
         }
 
         .page-title-custom h1 {
@@ -674,13 +816,20 @@
           justify-content: center;
           white-space: normal;
         }
+
+        .team-section {
+          padding: 40px 0 50px;
+        }
+
+        .team-member-card .team-avatar {
+          width: 90px;
+          height: 90px;
+        }
       }
 
-      /* Extra small devices (phones, less than 576px) */
       @media (max-width: 576px) {
         .page-title-custom {
-          padding: 10rem 0 30px;
-          /* Maximum padding for very small screens */
+          padding: 100px 0 30px;
         }
 
         .page-title-custom h1 {
@@ -693,7 +842,8 @@
 
         .about-story h2,
         .qualifications-section h2,
-        .specialties-section h2 {
+        .specialties-section h2,
+        .team-section h2 {
           font-size: 1.5rem;
         }
 
@@ -722,12 +872,24 @@
           flex-direction: column;
           text-align: center;
         }
+
+        .team-member-card {
+          padding: 20px 18px;
+        }
+
+        .team-member-card .team-avatar {
+          width: 80px;
+          height: 80px;
+        }
+
+        .team-member-card h4 {
+          font-size: 1rem;
+        }
       }
 
-      /* Extra fix for very small devices where topbar might be visible */
       @media (max-width: 400px) {
         .page-title-custom {
-          padding: 9rem 0 25px;
+          padding: 90px 0 25px;
         }
 
         .page-title-custom h1 {
@@ -775,19 +937,17 @@
         <div
           class="container position-relative d-flex align-items-center justify-content-between"
         >
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
+          <a href="/" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="Clinic Logo" />
             <h1 class="sitename">Zafar Homeopathic Clinic</h1>
           </a>
 
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="about.html" class="active">About</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="services.html">Services</a></li>
-
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -810,7 +970,7 @@
               </p>
               <nav class="breadcrumb-custom">
                 <ol>
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li class="current">About</li>
                 </ol>
               </nav>
@@ -1124,6 +1284,92 @@
       </section>
       <!-- ======= End Specialties Section ======= -->
 
+      <!-- ======= TEAM SECTION ======= -->
+      <section id="team" class="team-section">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+              <span class="section-badge">Our Team</span>
+              <h2>Meet Our <span class="highlight">Team</span></h2>
+              <p class="section-subtitle">
+                Dedicated professionals committed to your health and well-being.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- Team Member 1: Zafar Ali - Founder -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="team-member-card">
+                <div class="team-avatar">
+                  <img
+                    src="assets/img/person/zafar.jpeg"
+                    alt="Zafar Ali - Founder"
+                    onerror="this.parentElement.innerHTML = '<div class=\'avatar-placeholder\' style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;font-size:2.5rem;font-weight:700;\'>ZA</div>'"
+                  />
+                </div>
+                <span class="team-role-badge founder">Founder</span>
+                <h4>Zafar Ali</h4>
+                <p class="team-designation">Founder</p>
+                <p class="team-bio">Visionary behind Zafar Homeopathic Store &amp; Clinic</p>
+              </div>
+            </div>
+
+            <!-- Team Member 2: Dr. Muneeba Malik Awan - Co-Founder & Physician -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
+              <div class="team-member-card">
+                <div class="team-avatar">
+                  <img
+                    src="assets/img/person/muneeba.jpeg"
+                    alt="Dr. Muneeba Malik Awan - Homeopathic Physician"
+                    onerror="this.parentElement.innerHTML = '<div class=\'avatar-placeholder\' style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;font-size:2.5rem;font-weight:700;\'>MA</div>'"
+                  />
+                </div>
+                <span class="team-role-badge">Co-Founder</span>
+                <h4>Dr. Muneeba Malik Awan</h4>
+                <p class="team-designation">Co-Founder &amp; Homeopathic Physician</p>
+                <p class="team-bio">DHMS, RHMP — 8+ years of healing experience</p>
+              </div>
+            </div>
+
+            <!-- Team Member 3: Muhammad Samar - Compounder -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="team-member-card">
+                <div class="team-avatar">
+                  <img
+                    src="assets/img/person/samar.jpeg"
+                    alt="Muhammad Samar - Compounder"
+                    onerror="this.parentElement.innerHTML = '<div class=\'avatar-placeholder\' style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;font-size:2.5rem;font-weight:700;\'>MS</div>'"
+                  />
+                </div>
+                <span class="team-role-badge">Staff</span>
+                <h4>Muhammad Samar</h4>
+                <p class="team-designation">Compounder &amp; Staff</p>
+                <p class="team-bio">Expert in preparing precise homeopathic remedies</p>
+              </div>
+            </div>
+
+            <!-- Team Member 4: Amina Baloch - Compounder -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
+              <div class="team-member-card">
+                <div class="team-avatar">
+                  <img
+                    src="assets/img/person/amna.jpeg"
+                    alt="Amina Baloch - Compounder"
+                    onerror="this.parentElement.innerHTML = '<div class=\'avatar-placeholder\' style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;font-size:2.5rem;font-weight:700;\'>AB</div>'"
+                  />
+                </div>
+                <span class="team-role-badge">Staff</span>
+                <h4>Amina Baloch</h4>
+                <p class="team-designation">Compounder &amp; Staff</p>
+                <p class="team-bio">Compassionate care and precise medicine preparation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= End Team Section ======= -->
+
       <!-- ======= Personal Message Section ======= -->
       <section id="personal-message" class="personal-message-section">
         <div class="container" data-aos="fade-up">
@@ -1165,7 +1411,7 @@
       </section>
       <!-- ======= End Personal Message Section ======= -->
 
-      <!-- ======= CTA Section - IMPROVED ALIGNMENT ======= -->
+      <!-- ======= CTA Section ======= -->
       <section class="about-cta-section">
         <div class="container" data-aos="fade-up">
           <div class="row align-items-center">
@@ -1206,7 +1452,6 @@
                   href="index.html"
                   class="logo d-flex align-items-center mb-4"
                 >
-                  <!-- Logo Image -->
                   <img
                     src="assets/img/logo.png"
                     alt="Zafar Homeopathic Clinic Logo"
@@ -1364,17 +1609,8 @@
               </div>
               <div class="col-lg-6">
                 <div class="legal-links">
-                  <a style="opacity: 0" href="contact.html">Contact Us</a>
                   <a href="terms.html">Terms of Service</a>
                   <a href="contact.html">Contact Us</a>
-                  <div class="credits">
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>.
-                    Distributed by
-                    <a href="https://themewagon.com" target="_blank"
-                      >ThemeWagon</a
-                    >
-                  </div>
                 </div>
               </div>
             </div>
