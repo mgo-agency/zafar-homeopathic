@@ -3,9 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Index - Clinic Bootstrap Template</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <title>Zafar Homeopathic Clinic - Dr. Muneeba Malik Awan | Lahore</title>
+    <meta
+      name="description"
+      content="Natural homeopathic treatment by Dr. Muneeba Malik Awan in Lahore. Specializing in kidney stones, skin disorders, hair loss, gynecological issues & more. Online consultations available."
+    />
+    <meta
+      name="keywords"
+      content="homeopathic doctor Lahore, kidney stone treatment, skin disorder treatment, Dr. Muneeba Malik Awan, Zafar Homeopathic Clinic, online consultation Lahore"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Zafar Homeopathic Clinic - Dr. Muneeba Malik Awan | Lahore"
+    />
+    <meta
+      property="og:description"
+      content="Natural, side-effect-free homeopathic treatment for kidney stones, skin disorders, hair loss, gynecological issues & more."
+    />
+    <meta property="og:type" content="website" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -45,6 +62,463 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
+    <!-- Custom Styles -->
+    <style>
+      /* ========================================
+           POPUP DIALOG STYLES
+           ======================================== */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 99999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        animation: popupFadeIn 0.5s ease;
+        padding: 20px;
+      }
+
+      .popup-overlay.active {
+        display: flex;
+      }
+
+      .popup-modal {
+        background: #ffffff;
+        border-radius: 24px;
+        max-width: 520px;
+        width: 100%;
+        padding: 50px 45px 40px;
+        position: relative;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        animation: popupSlideUp 0.5s ease;
+        text-align: center;
+      }
+
+      .popup-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #adb5bd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        line-height: 1;
+        padding: 5px;
+      }
+
+      .popup-close-btn:hover {
+        color: #1a1a2e;
+        transform: rotate(90deg);
+      }
+
+      .popup-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: #ffffff;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+        animation: popupPulse 2s infinite;
+      }
+
+      .popup-icon {
+        font-size: 56px;
+        color: #ff6b35;
+        margin-bottom: 15px;
+        display: block;
+        animation: popupBounce 2s infinite;
+      }
+
+      .popup-modal h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+      }
+
+      .popup-modal h2 .highlight {
+        color: #0d6efd;
+      }
+
+      .popup-modal .popup-subtitle {
+        color: #6c757d;
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .popup-modal .popup-offer {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #ff6b35;
+        margin-bottom: 5px;
+      }
+
+      .popup-modal .popup-count {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 25px;
+      }
+
+      .popup-modal .popup-count strong {
+        color: #0d6efd;
+        font-size: 1.1rem;
+      }
+
+      .popup-divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 2px;
+        margin: 0 auto 20px;
+      }
+
+      .popup-btn-call {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px 45px;
+        background: linear-gradient(135deg, #25d366, #1da851);
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+      }
+
+      .popup-btn-call:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+        color: #ffffff;
+        background: linear-gradient(135deg, #1da851, #128C7E);
+      }
+
+      .popup-btn-call i {
+        font-size: 1.3rem;
+      }
+
+      .popup-footer-text {
+        margin-top: 18px;
+        font-size: 0.8rem;
+        color: #adb5bd;
+      }
+
+      .popup-footer-text a {
+        color: #0d6efd;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .popup-footer-text a:hover {
+        text-decoration: underline;
+      }
+
+      /* Popup Animations */
+      @keyframes popupFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes popupSlideUp {
+        from {
+          transform: translateY(30px) scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes popupPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes popupBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* ========================================
+           GALLERY SECTION - BENTO GRID
+           ======================================== */
+      .gallery-bento-section {
+        padding: 80px 0 70px;
+        background: #ffffff;
+      }
+
+      .gallery-bento-section .section-badge {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .gallery-bento-section .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+      }
+
+      .gallery-bento-section .section-title .highlight {
+        color: #0d6efd;
+        position: relative;
+      }
+
+      .gallery-bento-section .section-title .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 2px;
+        opacity: 0.3;
+      }
+
+      .gallery-bento-section .section-subtitle {
+        color: #6c757d;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Bento Grid */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 16px;
+        grid-auto-flow: dense;
+      }
+
+      .bento-item {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        aspect-ratio: 1/1;
+        background: #f8f9fa;
+        transition: all 0.4s ease;
+      }
+
+      .bento-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+        z-index: 2;
+      }
+
+      .bento-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .bento-item:hover img {
+        transform: scale(1.08);
+      }
+
+      .bento-item .bento-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 20px 18px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        color: #ffffff;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .bento-item:hover .bento-overlay {
+        opacity: 1;
+      }
+
+      .bento-item .bento-overlay h5 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .bento-item .bento-overlay p {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin-bottom: 0;
+      }
+
+      .bento-item .bento-icon-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.9);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.4s ease;
+        color: #0d6efd;
+        font-size: 20px;
+        pointer-events: none;
+      }
+
+      .bento-item:hover .bento-icon-overlay {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* Bento Sizes */
+      .bento-item--large {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: auto;
+      }
+
+      .bento-item--wide {
+        grid-column: span 2;
+        aspect-ratio: auto;
+        min-height: 200px;
+      }
+
+      .bento-item--tall {
+        grid-row: span 2;
+        aspect-ratio: auto;
+      }
+
+      /* Responsive Bento */
+      @media (max-width: 991px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .bento-item--large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+
+        .bento-item--wide {
+          grid-column: span 2;
+        }
+
+        .bento-item--tall {
+          grid-row: span 1;
+        }
+
+        .gallery-bento-section .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .bento-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        .bento-item--large {
+          grid-column: span 2;
+          grid-row: span 1;
+          min-height: 200px;
+        }
+
+        .bento-item--wide {
+          grid-column: span 2;
+          min-height: 160px;
+        }
+
+        .bento-item--tall {
+          grid-row: span 1;
+        }
+
+        .bento-item .bento-overlay h5 {
+          font-size: 0.8rem;
+        }
+
+        .gallery-bento-section .section-title {
+          font-size: 1.6rem;
+        }
+
+        .gallery-bento-section .section-subtitle {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* ========================================
+           GALLERY SECTION RESPONSIVE
+           ======================================== */
+      @media (max-width: 400px) {
+        .popup-modal {
+          padding: 35px 20px 30px;
+        }
+
+        .popup-modal h2 {
+          font-size: 1.4rem;
+        }
+
+        .popup-btn-call {
+          padding: 14px 25px;
+          font-size: 1rem;
+        }
+
+        .bento-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+
+        .bento-item--large {
+          min-height: 160px;
+        }
+
+        .bento-item--wide {
+          min-height: 130px;
+        }
+      }
+    </style>
+
     <!-- =======================================================
   * Template Name: Clinic
   * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
@@ -55,6 +529,50 @@
   </head>
 
   <body class="index-page">
+    <!-- ======= POPUP DIALOG ======= -->
+    <div id="promoPopup" class="popup-overlay">
+      <div class="popup-modal">
+        <button class="popup-close-btn" id="closePopup" aria-label="Close">
+          <i class="bi bi-x"></i>
+        </button>
+
+        <span class="popup-icon">
+          <i class="bi bi-gift"></i>
+        </span>
+
+        <span class="popup-badge">🔥 Limited Time Offer</span>
+
+        <h2>
+          Free <span class="highlight">Consultation</span>
+        </h2>
+
+        <p class="popup-subtitle">For the First 20 Patients</p>
+
+        <div class="popup-divider"></div>
+
+        <p class="popup-offer">🩺 Book Your Free Appointment Now!</p>
+
+        <p class="popup-count">
+          <strong>Only <span id="remainingCount">20</span> spots left!</strong>
+          — Don't miss this opportunity.
+        </p>
+
+        <a href="tel:+923156555848" class="popup-btn-call">
+          <i class="bi bi-telephone-fill"></i>
+          Call Now: 0315-6555848
+        </a>
+
+        <p class="popup-footer-text">
+          <i class="bi bi-shield-check me-1"></i>
+          No hidden charges • Limited time offer
+          <br>
+          <a href="#!" id="popupLater">I'll decide later</a>
+        </p>
+      </div>
+    </div>
+    <!-- ======= END POPUP DIALOG ======= -->
+
+    <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
       <div class="topbar d-flex align-items-center dark-background">
         <div
@@ -72,10 +590,8 @@
             >
           </div>
           <div class="social-links d-none d-md-flex align-items-center">
-             
             <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-             
           </div>
         </div>
       </div>
@@ -86,9 +602,8 @@
           class="container position-relative d-flex align-items-center justify-content-between"
         >
           <a href="index.html" class="logo d-flex align-items-center">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-             <img src="assets/img/logo.png" alt="Clinic Logo">
-            <!-- <h1 class="sitename">Clinic</h1> -->
+            <img src="assets/img/logo.png" alt="Clinic Logo" />
+            <h1 class="sitename">Zafar Homeopathic Clinic</h1>
           </a>
 
           <nav id="navmenu" class="navmenu">
@@ -97,7 +612,6 @@
               <li><a href="about.html">About</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="services.html">Services</a></li>
-               
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -105,6 +619,7 @@
         </div>
       </div>
     </header>
+    <!-- ======= End Header ======= -->
 
     <main class="main">
       <!-- Hero Section -->
@@ -182,7 +697,7 @@
                   <a href="appointment.html" class="btn btn-primary"
                     >Book Appointment</a
                   >
-                  <a href="tel:+923001234567" class="btn btn-outline">
+                  <a href="tel:+923156555848" class="btn btn-outline">
                     <i class="bi bi-telephone me-2"></i>
                     Call us Now
                   </a>
@@ -267,9 +782,6 @@
           <!-- End Section Title -->
 
           <div class="row g-5 align-items-center">
-            <!-- Doctor Image Column -->
-           
-
             <!-- Doctor Info Column -->
             <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
               <div class="v2-doctor-info">
@@ -315,11 +827,11 @@
                     </span>
                     <span class="v2-tag">
                       <i class="bi bi-check-circle-fill"></i>
-                      Thyroid Issues
+                      Gynecological Issues
                     </span>
                     <span class="v2-tag">
                       <i class="bi bi-check-circle-fill"></i>
-                      General Homeopathy
+                      Infertility Treatment
                     </span>
                     <span class="v2-tag">
                       <i class="bi bi-check-circle-fill"></i>
@@ -344,6 +856,8 @@
           </div>
         </div>
       </section>
+      <!-- /About the Doctor Section -->
+
       <!-- Why Choose Us Section -->
       <section id="why-choose-us" class="why-choose-us section">
         <div class="container" data-aos="fade-up">
@@ -500,7 +1014,7 @@
           </div>
         </div>
       </section>
-      <!-- /Call To Action Section -->
+      <!-- /Why Choose Us Section -->
 
       <!-- Our Services Section -->
       <section id="v2-services" class="v2-services section">
@@ -554,7 +1068,7 @@
                     High success rate
                   </li>
                 </ul>
-                <a href="service-details.html" class="v2-service-link">
+                <a href="services.html" class="v2-service-link">
                   Learn More <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -593,7 +1107,7 @@
                     Preventive healthcare
                   </li>
                 </ul>
-                <a href="service-details.html" class="v2-service-link">
+                <a href="services.html" class="v2-service-link">
                   Learn More <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -632,7 +1146,7 @@
                     Flexible scheduling
                   </li>
                 </ul>
-                <a href="service-details.html" class="v2-service-link">
+                <a href="services.html" class="v2-service-link">
                   Learn More <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -659,6 +1173,178 @@
           </div>
         </div>
       </section>
+
+      <!-- ======= GALLERY SECTION - BENTO GRID ======= -->
+      <section id="gallery" class="gallery-bento-section">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+              <span class="section-badge">Our Gallery</span>
+              <h2 class="section-title">
+                A Glimpse Into <span class="highlight">Our Clinic</span>
+              </h2>
+              <p class="section-subtitle">
+                Explore our welcoming space, dedicated team, and the healing
+                environment we've created for our patients.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Item 1: Large - Clinic Exterior -->
+            <div class="bento-item bento-item--large">
+              <img
+                src="assets/img/gallery/clinic-1.webp"
+                alt="Zafar Homeopathic Clinic Exterior"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/600x400/0d6efd/ffffff?text=Clinic+Exterior'"
+              />
+              <div class="bento-overlay">
+                <h5>Clinic Exterior</h5>
+                <p>Welcoming entrance at Boharwala Chowk</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 2: Wide - Waiting Area -->
+            <div class="bento-item bento-item--wide">
+              <img
+                src="assets/img/gallery/clinic-2.webp"
+                alt="Comfortable Waiting Area"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/400x250/0d6efd/ffffff?text=Waiting+Area'"
+              />
+              <div class="bento-overlay">
+                <h5>Comfortable Waiting Area</h5>
+                <p>Warm and welcoming space for patients</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 3: Tall - Consultation Room -->
+            <div class="bento-item bento-item--tall">
+              <img
+                src="assets/img/gallery/clinic-3.webp"
+                alt="Consultation Room"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x400/0d6efd/ffffff?text=Consultation+Room'"
+              />
+              <div class="bento-overlay">
+                <h5>Consultation Room</h5>
+                <p>Private & comfortable healing space</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 4: Square - Medicine Display -->
+            <div class="bento-item">
+              <img
+                src="assets/img/med/Magnesium-Phosphoricum.jpeg"
+                alt="Homeopathic Medicines Display"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x300/0d6efd/ffffff?text=Medicines'"
+              />
+              <div class="bento-overlay">
+                <h5>Medicine Display</h5>
+                <p>Quality homeopathic remedies</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 5: Square - Team -->
+            <div class="bento-item">
+              <img
+                src="assets/img/team/zafar-ali.webp"
+                alt="Zafar Homeopathic Clinic Team"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x300/0d6efd/ffffff?text=Our+Team'"
+              />
+              <div class="bento-overlay">
+                <h5>Our Team</h5>
+                <p>Dedicated healthcare professionals</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 6: Square - Dr. Muneeba -->
+            <div class="bento-item">
+              <img
+                src="assets/img/doctor.jpeg"
+                alt="Dr. Muneeba Malik Awan"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x300/0d6efd/ffffff?text=Dr.+Muneeba'"
+              />
+              <div class="bento-overlay">
+                <h5>Dr. Muneeba Malik Awan</h5>
+                <p>Your trusted homeopathic physician</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 7: Wide - Community Event -->
+            <div class="bento-item bento-item--wide">
+              <img
+                src="assets/img/events/health-camp-1.webp"
+                alt="Health Awareness Camp"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/400x250/0d6efd/ffffff?text=Health+Camp'"
+              />
+              <div class="bento-overlay">
+                <h5>Health Awareness Camp</h5>
+                <p>Community health initiatives</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+
+            <!-- Item 8: Square - Medicine Preparation -->
+            <div class="bento-item">
+              <img
+                src="assets/img/med/Cholesterolum112.jpeg"
+                alt="Medicine Preparation"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x300/0d6efd/ffffff?text=Medicine+Prep'"
+              />
+              <div class="bento-overlay">
+                <h5>Quality Medicines</h5>
+                <p>Carefully prepared remedies</p>
+              </div>
+              <div class="bento-icon-overlay">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gallery CTA -->
+          <div
+            class="row justify-content-center mt-5"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="col-lg-8 text-center">
+              <p class="text-muted" style="font-size: 0.95rem">
+                <i class="bi bi-camera me-2"></i>
+                More photos coming soon! Stay connected.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= END GALLERY SECTION ======= -->
+
       <!-- Patient Testimonials Section -->
       <section id="v2-testimonials" class="v2-testimonials section">
         <div class="container" data-aos="fade-up">
@@ -994,6 +1680,7 @@
           </div>
         </div>
       </section>
+
       <!-- Google Maps Section -->
       <section id="v2-location" class="v2-location section">
         <div class="container" data-aos="fade-up">
@@ -1147,136 +1834,194 @@
       </section>
     </main>
 
-   <footer id="footer" class="footer-16 footer position-relative">
-    <div class="container">
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer-16 footer position-relative">
+      <div class="container">
         <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
-            <div class="row align-items-start">
-                
-                <!-- Brand Column -->
-                <div class="col-lg-5">
-                    <div class="brand-section">
-                        <a href="index.html" class="logo d-flex align-items-center mb-4">
-                            <!-- Logo Image -->
-                            <img src="assets/img/logo.png" alt="Zafar Homeopathic Clinic Logo" class="footer-logo-img me-3" style="height: 50px; width: auto;">
-                            <span class="sitename">Zafar Homeopathic</span>
+          <div class="row align-items-start">
+            <!-- Brand Column -->
+            <div class="col-lg-5">
+              <div class="brand-section">
+                <a
+                  href="index.html"
+                  class="logo d-flex align-items-center mb-4"
+                >
+                  <img
+                    src="assets/img/logo.png"
+                    alt="Zafar Homeopathic Clinic Logo"
+                    class="footer-logo-img me-3"
+                    style="height: 50px; width: auto"
+                  />
+                  <span class="sitename">Zafar Homeopathic</span>
+                </a>
+                <p class="brand-description">
+                  Natural healing through the power of homeopathy. Dr. Muneeba
+                  Malik Awan provides compassionate, side-effect-free treatment
+                  for all ages.
+                </p>
+
+                <div class="contact-info mt-4">
+                  <div class="contact-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <span
+                      >1 Km, Ali Town, Raiwind Road, Thokar Niaz Baig, Opposite
+                      Dental Hospital, University of Lahore</span
+                    >
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <a
+                      href="tel:+923156555848"
+                      style="color: inherit; text-decoration: none"
+                      >0315-6555848</a
+                    >
+                    |
+                    <a
+                      href="tel:+923156555848"
+                      style="color: inherit; text-decoration: none"
+                      >0315-6555848</a
+                    >
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-whatsapp"></i>
+                    <a
+                      href="https://wa.me/923156555848"
+                      target="_blank"
+                      style="
+                        color: #25d366;
+                        text-decoration: none;
+                        font-weight: 500;
+                      "
+                      >WhatsApp: 0315-6555848</a
+                    >
+                  </div>
+                  <div class="contact-item">
+                    <i class="bi bi-clock"></i>
+                    <span>Mon – Sun: 11:00 AM – 11:00 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Links Column -->
+            <div class="col-lg-7">
+              <div class="footer-nav-wrapper">
+                <div class="row">
+                  <!-- Quick Links -->
+                  <div class="col-lg-4 col-md-4 col-6">
+                    <div class="nav-column">
+                      <h6>Quick Links</h6>
+                      <nav class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="appointment.html">Appointment</a>
+                        <a href="contact.html">Contact</a>
+                      </nav>
+                    </div>
+                  </div>
+
+                  <!-- Our Services -->
+                  <div class="col-lg-4 col-md-4 col-6">
+                    <div class="nav-column">
+                      <h6>Our Services</h6>
+                      <nav class="footer-nav">
+                        <a href="services.html#kidney-stones">Kidney Stones</a>
+                        <a href="services.html#skin-disorders">Skin Disorders</a>
+                        <a href="services.html#hair-growth">Hair Growth</a>
+                        <a href="services.html#stomach-infection"
+                          >Stomach Issues</a
+                        >
+                        <a href="services.html#blood-pressure"
+                          >Blood Pressure</a
+                        >
+                      </nav>
+                    </div>
+                  </div>
+
+                  <!-- Connect With Us -->
+                  <div class="col-lg-4 col-md-4 col-12">
+                    <div class="nav-column">
+                      <h6>Connect With Us</h6>
+                      <nav class="footer-nav">
+                        <a href="https://wa.me/923156555848" target="_blank">
+                          <i class="bi bi-whatsapp me-1"></i> WhatsApp
                         </a>
-                        <p class="brand-description">
-                            Natural healing through the power of homeopathy. Dr. Muneeba Malik Awan provides compassionate, side-effect-free treatment for all ages.
-                        </p>
+                        <a href="tel:+923156555848">
+                          <i class="bi bi-telephone me-1"></i> Call Now
+                        </a>
+                        <a
+                          href="https://www.google.com/maps/place/Zafar+Homeopathic+Store+%26+Clinic/@31.4597564,74.2442772,18.5z/"
+                          target="_blank"
+                        >
+                          <i class="bi bi-geo-alt me-1"></i> Get Directions
+                        </a>
+                        <a href="appointment.html">
+                          <i class="bi bi-calendar-check me-1"></i> Book
+                          Appointment
+                        </a>
+                      </nav>
 
-                        <div class="contact-info mt-4">
-                            <div class="contact-item">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>1 Km, Ali Town, Raiwind Road, Thokar Niaz Baig, Opposite Dental Hospital, University of Lahore</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="bi bi-telephone"></i>
-                                <a href="tel:+923156555848" style="color: inherit; text-decoration: none;">0315-6555848</a> | <a href="tel:+923156555848" style="color: inherit; text-decoration: none;">0315-6555848</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="bi bi-whatsapp"></i>
-                                <a href="https://wa.me/923156555848" target="_blank" style="color: #25D366; text-decoration: none; font-weight: 500;">WhatsApp: 0315-6555848</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="bi bi-clock"></i>
-                                <span>Mon – Sun: 11:00 AM – 11:00 PM</span>
-                            </div>
-                        </div>
+                      <!-- Social Icons -->
+                      <div class="footer-social mt-3">
+                        <a href="#" class="social-icon" aria-label="Facebook"
+                          ><i class="bi bi-facebook"></i
+                        ></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"
+                          ><i class="bi bi-instagram"></i
+                        ></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"
+                          ><i class="bi bi-youtube"></i
+                        ></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"
+                          ><i class="bi bi-tiktok"></i
+                        ></a>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <!-- Navigation Links Column -->
-                <div class="col-lg-7">
-                    <div class="footer-nav-wrapper">
-                        <div class="row">
-                            
-                            <!-- Quick Links -->
-                            <div class="col-lg-4 col-md-4 col-6">
-                                <div class="nav-column">
-                                    <h6>Quick Links</h6>
-                                    <nav class="footer-nav">
-                                        <a href="index.html">Home</a>
-                                        <a href="about.html">About Us</a>
-                                        <a href="services.html">Services</a>
-                                        <a href="appointment.html">Appointment</a>
-                                        <a href="contact.html">Contact</a>
-                                    </nav>
-                                </div>
-                            </div>
-
-                            <!-- Our Services -->
-                            <div class="col-lg-4 col-md-4 col-6">
-                                <div class="nav-column">
-                                    <h6>Our Services</h6>
-                                    <nav class="footer-nav">
-                                        <a href="services.html#kidney-stones">Kidney Stones</a>
-                                        <a href="services.html#skin-diseases">Skin Diseases</a>
-                                        <a href="services.html#hair-loss">Hair Loss</a>
-                                        <a href="services.html#stomach-issues">Stomach Issues</a>
-                                        <a href="services.html#blood-pressure">Blood Pressure</a>
-                                    </nav>
-                                </div>
-                            </div>
-
-                            <!-- Connect With Us -->
-                            <div class="col-lg-4 col-md-4 col-12">
-                                <div class="nav-column">
-                                    <h6>Connect With Us</h6>
-                                    <nav class="footer-nav">
-                                        <a href="https://wa.me/923156555848" target="_blank">
-                                            <i class="bi bi-whatsapp me-1"></i> WhatsApp
-                                        </a>
-                                        <a href="tel:+923156555848">
-                                            <i class="bi bi-telephone me-1"></i> Call Now
-                                        </a>
-                                        <a href="https://www.google.com/maps/place/Zafar+Homeopathic+Store+%26+Clinic/@31.4597564,74.2442772,18.5z/" target="_blank">
-                                            <i class="bi bi-geo-alt me-1"></i> Get Directions
-                                        </a>
-                                        <a href="appointment.html">
-                                            <i class="bi bi-calendar-check me-1"></i> Book Appointment
-                                        </a>
-                                    </nav>
-
-                                    <!-- Social Icons -->
-                                    <div class="footer-social mt-3">
-                                        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                        <a href="#" class="social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                                        <a href="#" class="social-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
         <div class="container">
-            <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="copyright">
-                            <p>© <span class="sitename">Zafar Homeopathic Store &amp; Clinic</span>. All rights reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="legal-links">
-                             
-                            <a href="terms.html">Terms of Service</a>
-                            <a href="contact.html">Contact Us</a>
-                        </div>
-                    </div>
+          <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="copyright">
+                  <p>
+                    ©
+                    <span class="sitename"
+                      >Zafar Homeopathic Store &amp; Clinic</span
+                    >. All rights reserved.
+                  </p>
                 </div>
+              </div>
+            <div class="col-lg-6">
+                <div class="legal-links">
+                  <a style="opacity: 0" href="contact.html">Contact Us</a>
+                  <a href="terms.html">Terms of Service</a>
+                  <a href="contact.html">Contact Us</a>
+                  <div class="credits">
+                    Designed by
+                    <a href="https://bootstrapmade.com/">BootstrapMade</a>.
+                    Distributed by
+                    <a href="https://themewagon.com" target="_blank"
+                      >ThemeWagon</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
+    <!-- ======= End Footer ======= -->
 
     <!-- WhatsApp Widget -->
     <div class="whatsapp-widget">
@@ -1294,7 +2039,7 @@
         <div class="whatsapp-header">
           <div class="d-flex align-items-center">
             <img
-              src="/assets//img//logo.png"
+              src="assets/img/logo.png"
               alt="Support"
               class="rounded-circle me-2"
               width="40"
@@ -1340,5 +2085,152 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom JS for Popup and Gallery -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ========================================
+        // POPUP DIALOG
+        // ========================================
+        const popup = document.getElementById("promoPopup");
+        const closeBtn = document.getElementById("closePopup");
+        const laterLink = document.getElementById("popupLater");
+        const remainingSpan = document.getElementById("remainingCount");
+
+        // Check if popup was already shown in this session
+        if (!sessionStorage.getItem("popupShown")) {
+          // Show popup after 1.5 seconds
+          setTimeout(function () {
+            popup.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }, 1500);
+        }
+
+        // Close popup function
+        function closePopup() {
+          popup.classList.remove("active");
+          document.body.style.overflow = "";
+          sessionStorage.setItem("popupShown", "true");
+        }
+
+        // Close button
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closePopup);
+        }
+
+        // "I'll decide later" link
+        if (laterLink) {
+          laterLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            closePopup();
+          });
+        }
+
+        // Close on overlay click (but not on modal click)
+        popup.addEventListener("click", function (e) {
+          if (e.target === popup) {
+            closePopup();
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && popup.classList.contains("active")) {
+            closePopup();
+          }
+        });
+
+        // ========================================
+        // GALLERY - GLIGHTBOX
+        // ========================================
+        const galleryItems = document.querySelectorAll(".bento-item");
+        galleryItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            const img = this.querySelector("img");
+            if (img) {
+              // Create a lightbox effect
+              const lightbox = document.createElement("div");
+              lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    z-index: 999999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    padding: 40px;
+                  `;
+
+              const imgClone = document.createElement("img");
+              imgClone.src = img.src;
+              imgClone.alt = img.alt || "Gallery Image";
+              imgClone.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 12px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                  `;
+
+              const closeIcon = document.createElement("button");
+              closeIcon.innerHTML = '<i class="bi bi-x"></i>';
+              closeIcon.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    background: none;
+                    border: none;
+                    color: #ffffff;
+                    font-size: 40px;
+                    cursor: pointer;
+                    opacity: 0.7;
+                    transition: opacity 0.3s ease;
+                  `;
+              closeIcon.addEventListener("mouseenter", function () {
+                this.style.opacity = "1";
+              });
+              closeIcon.addEventListener("mouseleave", function () {
+                this.style.opacity = "0.7";
+              });
+
+              lightbox.appendChild(imgClone);
+              lightbox.appendChild(closeIcon);
+
+              // Close on click
+              lightbox.addEventListener("click", function (e) {
+                if (e.target === lightbox) {
+                  document.body.removeChild(lightbox);
+                  document.body.style.overflow = "";
+                }
+              });
+
+              closeIcon.addEventListener("click", function (e) {
+                e.stopPropagation();
+                document.body.removeChild(lightbox);
+                document.body.style.overflow = "";
+              });
+
+              // Close on Escape
+              document.addEventListener("keydown", function escHandler(e) {
+                if (e.key === "Escape") {
+                  if (document.body.contains(lightbox)) {
+                    document.body.removeChild(lightbox);
+                    document.body.style.overflow = "";
+                  }
+                  document.removeEventListener("keydown", escHandler);
+                }
+              });
+
+              document.body.appendChild(lightbox);
+              document.body.style.overflow = "hidden";
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
