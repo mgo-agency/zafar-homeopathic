@@ -44,6 +44,12 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- ============================================ -->
+    <!-- EMAILJS LIBRARY - Required for sending email -->
+    <!-- ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
 
@@ -139,7 +145,6 @@
         .page-title-custom {
             background: linear-gradient(135deg, #0d6efd, #0a58ca);
             padding: 160px 0 50px;
-            /* Increased top padding for desktop */
             position: relative;
             overflow: hidden;
         }
@@ -376,6 +381,41 @@
             background: #0a58ca;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+        }
+
+        .contact-form-card-custom .btn-submit-custom:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Form Status Messages */
+        .form-status {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid #28a745;
+            color: #155724;
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid #dc3545;
+            color: #721c24;
+        }
+
+        .form-status.loading {
+            display: block;
+            background: rgba(13, 110, 253, 0.1);
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
         }
 
         /* Quick Action Buttons */
@@ -639,161 +679,53 @@
                 font-size: 1.4rem;
             }
         }
-
-        /* Toast Notification */
-        .toast-notification {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #28a745;
-            color: #ffffff;
-            padding: 15px 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            display: none;
-            align-items: center;
-            gap: 12px;
-            z-index: 9999;
-            animation: slideInUp 0.5s ease;
-            max-width: 400px;
-        }
-
-        .toast-notification.show {
-            display: flex;
-        }
-
-        .toast-notification .toast-icon {
-            font-size: 24px;
-        }
-
-        .toast-notification .toast-content {
-            flex: 1;
-        }
-
-        .toast-notification .toast-content h6 {
-            margin-bottom: 2px;
-            font-weight: 600;
-        }
-
-        .toast-notification .toast-content p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .toast-notification .toast-close {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .toast-notification .toast-close:hover {
-            opacity: 1;
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOutDown {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-        }
-
-        .toast-notification.hide {
-            animation: slideOutDown 0.5s ease forwards;
-        }
-
-        @media (max-width: 576px) {
-            .toast-notification {
-                bottom: 20px;
-                right: 20px;
-                left: 20px;
-                padding: 12px 18px;
-                max-width: 100%;
-            }
-        }
     </style>
 
-    <!-- =======================================================
-    * Template Name: Clinic
-    * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-    * Updated: Jul 23 2025 with Bootstrap v5.3.7
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <body class="contact-page">
 
     <!-- ======= Header ======= -->
-     <header id="header" class="header fixed-top">
-      <div class="topbar d-flex align-items-center dark-background">
-        <div
-          class="container d-flex justify-content-center justify-content-md-between"
-        >
-          <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"
-              ><a href="mailto:contact@zafarhomeopathic.com">contact@zafarhomeopathic.com</a></i
-            >
-            <i class="bi bi-phone d-flex align-items-center ms-4"
-              ><span>+92 315 6555848</span></i
-            >
-            <i class="bi bi-clock d-flex align-items-center ms-4"
-              ><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i
-            >
-          </div>
-          <div class="social-links d-none d-md-flex align-items-center">
-             
-             <a href="https://www.facebook.com/profile.php?id=61590854444443
-" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/zafarhomeopathic/" class="instagram"><i class="bi bi-instagram"></i></a>
-             
-          </div>
+    <header id="header" class="header fixed-top">
+        <div class="topbar d-flex align-items-center dark-background">
+            <div class="container d-flex justify-content-center justify-content-md-between">
+                <div class="contact-info d-flex align-items-center">
+                    <i class="bi bi-envelope d-flex align-items-center">
+                        <a href="mailto:contact@zafarhomeopathic.com">contact@zafarhomeopathic.com</a>
+                    </i>
+                    <i class="bi bi-phone d-flex align-items-center ms-4">
+                        <span>+92 315 6555848</span>
+                    </i>
+                    <i class="bi bi-clock d-flex align-items-center ms-4">
+                        <span>Mon-Sat: 11:00 AM - 11:00 PM</span>
+                    </i>
+                </div>
+                <div class="social-links d-none d-md-flex align-items-center">
+                    <a href="https://www.facebook.com/profile.php?id=61590854444443" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/zafarhomeopathic/" class="instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- End Top Bar -->
 
-      <div class="branding d-flex align-items-cente">
-        <div
-          class="container position-relative d-flex align-items-center justify-content-between"
-        >
-          <a href="/" class="logo d-flex align-items-center">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-             <img src="assets/img/logo.png" alt="Clinic Logo">
-            <h1 class="sitename">Zafar Homeopathic Clinic</h1>
-          </a>
+        <div class="branding d-flex align-items-cente">
+            <div class="container position-relative d-flex align-items-center justify-content-between">
+                <a href="/" class="logo d-flex align-items-center">
+                    <img src="assets/img/logo.png" alt="Clinic Logo">
+                    <h1 class="sitename">Zafar Homeopathic Clinic</h1>
+                </a>
 
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="appointment.html">Appointment</a></li>
-              <li><a href="services.html">Services</a></li>
-               
-              <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+            </div>
         </div>
-      </div>
     </header>
     <!-- ======= End Header ======= -->
 
@@ -917,7 +849,14 @@
                             <h3>Send Us a Message</h3>
                             <p class="form-text">Have questions or want to book an appointment? Fill out the form below and we'll get back to you shortly.</p>
 
-                            <form id="contactForm" class="contact-form">
+                            <!-- ============================================ -->
+                            <!-- CONTACT FORM WITH EMAILJS                     -->
+                            <!-- ============================================ -->
+                            <!-- Status Message Display -->
+                            <div id="formStatus" class="form-status"></div>
+
+                            <!-- Form with onsubmit handler -->
+                            <form id="contactForm" onsubmit="sendEmail(event)">
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="fullName" placeholder="Your Full Name" required>
@@ -936,13 +875,17 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <button type="submit" class="btn-submit-custom">
+                                        <button type="submit" class="btn-submit-custom" id="submitBtn">
                                             <i class="bi bi-send me-2"></i>
                                             Send Message
                                         </button>
                                     </div>
                                 </div>
                             </form>
+                            <!-- ============================================ -->
+                            <!-- END FORM                                    -->
+                            <!-- ============================================ -->
+
                         </div>
                     </div>
 
@@ -961,10 +904,7 @@
                                 <a href="https://www.tiktok.com/@zafarhomeopathic" class="social-link tiktok" target="_blank">
                                     <i class="bi bi-tiktok"></i>
                                 </a>
-                                
                             </div>
-
-                          
 
                             <div class="mt-4">
                                 <div style="background: rgba(13, 110, 253, 0.04); border-radius: 12px; padding: 15px 20px;">
@@ -1005,198 +945,125 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer-16 footer position-relative">
-      <div class="container">
-        <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
-          <div class="row align-items-start">
-            <!-- Brand Column -->
-            <div class="col-lg-5">
-              <div class="brand-section">
-                <a
-                  href="index.html"
-                  class="logo d-flex align-items-center mb-4"
-                >
-                  <!-- Logo Image -->
-                  <img
-                    src="assets/img/logo.png"
-                    alt="Zafar Homeopathic Clinic Logo"
-                    class="footer-logo-img me-3"
-                    style="height: 50px; width: auto"
-                  />
-                  <span class="sitename">Zafar Homeopathic</span>
-                </a>
-                <p class="brand-description">
-                  Natural healing through the power of homeopathy. Dr. Muneeba
-                  Malik Awan provides compassionate, side-effect-free treatment
-                  for all ages.
-                </p>
-
-                <div class="contact-info mt-4">
-                  <div class="contact-item">
-                    <i class="bi bi-geo-alt"></i>
-                    <span
-                      >1 Km, Ali Town, Raiwind Road, Thokar Niaz Baig, Opposite
-                      Dental Hospital, University of Lahore</span
-                    >
-                  </div>
-                  <div class="contact-item">
-                    <i class="bi bi-telephone"></i>
-                    <a
-                      href="tel:+923156555848"
-                      style="color: inherit; text-decoration: none"
-                      >0315-6555848</a
-                    >
-                  </div>
-                  <div class="contact-item">
-                    <i class="bi bi-whatsapp"></i>
-                    <a
-                      href="https://wa.me/923156555848"
-                      target="_blank"
-                      style="
-                        color: #25d366;
-                        text-decoration: none;
-                        font-weight: 500;
-                      "
-                      >WhatsApp: 0315-6555848</a
-                    >
-                  </div>
-                  <div class="contact-item">
-                    <i class="bi bi-clock"></i>
-                    <span>Mon – Sun: 11:00 AM – 11:00 PM</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Navigation Links Column -->
-            <div class="col-lg-7">
-              <div class="footer-nav-wrapper">
-                <div class="row">
-                  <!-- Quick Links -->
-                  <div class="col-lg-4 col-md-4 col-6">
-                    <div class="nav-column">
-                      <h6>Quick Links</h6>
-                      <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About Us</a>
-                        <a href="services.html">Services</a>
-                        <a href="appointment.html">Appointment</a>
-                        <a href="contact.html">Contact</a>
-                      </nav>
-                    </div>
-                  </div>
-
-                  <!-- Our Services -->
-                  <div class="col-lg-4 col-md-4 col-6">
-                    <div class="nav-column">
-                      <h6>Our Services</h6>
-                      <nav class="footer-nav">
-                        <a href="services.html#kidney-stones">Kidney Stones</a>
-                        <a href="services.html#skin-diseases">Skin Diseases</a>
-                        <a href="services.html#hair-loss">Hair Loss</a>
-                        <a href="services.html#stomach-issues"
-                          >Stomach Issues</a
-                        >
-                        <a href="services.html#blood-pressure"
-                          >Blood Pressure</a
-                        >
-                      </nav>
-                    </div>
-                  </div>
-
-                  <!-- Connect With Us -->
-                  <div class="col-lg-4 col-md-4 col-12">
-                    <div class="nav-column">
-                      <h6>Connect With Us</h6>
-                      <nav class="footer-nav">
-                        <a href="https://wa.me/923156555848" target="_blank">
-                          <i class="bi bi-whatsapp me-1"></i> WhatsApp
-                        </a>
-                        <a href="tel:+923156555848">
-                          <i class="bi bi-telephone me-1"></i> Call Now
-                        </a>
-                        <a
-                          href="https://www.google.com/maps/place/Zafar+Homeopathic+Store+%26+Clinic/@31.4597564,74.2442772,18.5z/"
-                          target="_blank"
-                        >
-                          <i class="bi bi-geo-alt me-1"></i> Get Directions
-                        </a>
-                        <a href="appointment.html">
-                          <i class="bi bi-calendar-check me-1"></i> Book
-                          Appointment
-                        </a>
-                      </nav>
-
-                      <!-- Social Icons -->
-                      <div class="footer-social mt-3">
-                        <a href="https://www.facebook.com/profile.php?id=61590854444443
-" class="social-icon" aria-label="Facebook"
-                          ><i class="bi bi-facebook"></i
-                        ></a>
-                        <a href="https://www.instagram.com/zafarhomeopathic/" class="social-icon" aria-label="Instagram"
-                          ><i class="bi bi-instagram"></i
-                        ></a>
-                        <a href="https://www.tiktok.com/@zafarhomeopathic" class="social-icon" aria-label="TikTok"
-                          ><i class="bi bi-tiktok"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
         <div class="container">
-          <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <div class="copyright">
-                  <p>
-                    ©
-                    <span class="sitename"
-                      >Zafar Homeopathic Store &amp; Clinic</span
-                    >. All rights reserved.
-                  </p>
+            <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-start">
+                    <!-- Brand Column -->
+                    <div class="col-lg-5">
+                        <div class="brand-section">
+                            <a href="index.html" class="logo d-flex align-items-center mb-4">
+                                <img src="assets/img/logo.png" alt="Zafar Homeopathic Clinic Logo" class="footer-logo-img me-3" style="height: 50px; width: auto" />
+                                <span class="sitename">Zafar Homeopathic</span>
+                            </a>
+                            <p class="brand-description">
+                                Natural healing through the power of homeopathy. Dr. Muneeba Malik Awan provides compassionate, side-effect-free treatment for all ages.
+                            </p>
+
+                            <div class="contact-info mt-4">
+                                <div class="contact-item">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>1 Km, Ali Town, Raiwind Road, Thokar Niaz Baig, Opposite Dental Hospital, University of Lahore</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-telephone"></i>
+                                    <a href="tel:+923156555848" style="color: inherit; text-decoration: none">0315-6555848</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <a href="https://wa.me/923156555848" target="_blank" style="color: #25d366; text-decoration: none; font-weight: 500;">WhatsApp: 0315-6555848</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-clock"></i>
+                                    <span>Mon – Sat: 11:00 AM – 11:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links Column -->
+                    <div class="col-lg-7">
+                        <div class="footer-nav-wrapper">
+                            <div class="row">
+                                <!-- Quick Links -->
+                                <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="nav-column">
+                                        <h6>Quick Links</h6>
+                                        <nav class="footer-nav">
+                                            <a href="index.html">Home</a>
+                                            <a href="about.html">About Us</a>
+                                            <a href="services.html">Services</a>
+                                            <a href="appointment.html">Appointment</a>
+                                            <a href="contact.html">Contact</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <!-- Our Services -->
+                                <div class="col-lg-4 col-md-4 col-6">
+                                    <div class="nav-column">
+                                        <h6>Our Services</h6>
+                                        <nav class="footer-nav">
+                                            <a href="services.html#kidney-stones">Kidney Stones</a>
+                                            <a href="services.html#skin-diseases">Skin Diseases</a>
+                                            <a href="services.html#hair-loss">Hair Loss</a>
+                                            <a href="services.html#stomach-issues">Stomach Issues</a>
+                                            <a href="services.html#blood-pressure">Blood Pressure</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <!-- Connect With Us -->
+                                <div class="col-lg-4 col-md-4 col-12">
+                                    <div class="nav-column">
+                                        <h6>Connect With Us</h6>
+                                        <nav class="footer-nav">
+                                            <a href="https://wa.me/923156555848" target="_blank"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+                                            <a href="tel:+923156555848"><i class="bi bi-telephone me-1"></i> Call Now</a>
+                                            <a href="https://www.google.com/maps/place/Zafar+Homeopathic+Store+%26+Clinic/@31.4597564,74.2442772,18.5z/" target="_blank"><i class="bi bi-geo-alt me-1"></i> Get Directions</a>
+                                            <a href="appointment.html"><i class="bi bi-calendar-check me-1"></i> Book Appointment</a>
+                                        </nav>
+
+                                        <!-- Social Icons -->
+                                        <div class="footer-social mt-3">
+                                            <a href="https://www.facebook.com/profile.php?id=61590854444443" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                                            <a href="https://www.instagram.com/zafarhomeopathic/" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                            <a href="https://www.tiktok.com/@zafarhomeopathic" class="social-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="legal-links">
-                  <a style="opacity: 0" href="contact.html">Contact Us</a>
-                  <a href="terms.html">Terms of Service</a>
-                  <a href="contact.html">Contact Us</a>
-                  <div class="credits">
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>.
-                    Distributed by
-                    <a href="https://themewagon.com" target="_blank"
-                      >ThemeWagon</a
-                    >
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="copyright">
+                                <p>© <span class="sitename">Zafar Homeopathic Store &amp; Clinic</span>. All rights reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="legal-links">
+                                <a href="contact.html">Contact Us</a>
+                                <a href="terms.html">Terms of Service</a>
+                                <div class="credits">
+                                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>.
+                                    Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- ======= End Footer ======= -->
-
-    <!-- ======= Toast Notification ======= -->
-    <div id="toastNotification" class="toast-notification">
-        <div class="toast-icon">
-            <i class="bi bi-check-circle-fill"></i>
-        </div>
-        <div class="toast-content">
-            <h6>Message Sent! ✅</h6>
-            <p>Thank you! We'll get back to you within 24 hours.</p>
-        </div>
-        <button class="toast-close" onclick="closeToast()">✕</button>
-    </div>
-    <!-- ======= End Toast Notification ======= -->
 
     <!-- Scroll Top -->
     <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
@@ -1217,118 +1084,139 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
 
-    <!-- Custom Contact Page JS -->
+    <!-- ============================================ -->
+    <!-- EMAILJS JAVASCRIPT - SEND EMAIL              -->
+    <!-- ============================================ -->
     <script>
-        // ========================================
-        // Contact Form Handler with Push Notification
-        // ========================================
-        document.addEventListener('DOMContentLoaded', function() {
+        // ============================================================
+        // STEP 1: Initialize EmailJS with your Public Key
+        // Get this from: EmailJS Dashboard → API Keys
+        // ============================================================
+        (function() {
+            emailjs.init({
+                publicKey: "WyJZqVABLn3NzJoAq", // 👈 REPLACE THIS
+            });
+        })();
+
+        // ============================================================
+        // STEP 2: Function to send email when form is submitted
+        // ============================================================
+        function sendEmail(event) {
+            // Prevent page reload
+            event.preventDefault();
+
+            // Get form elements
             const form = document.getElementById('contactForm');
-            const toast = document.getElementById('toastNotification');
+            const statusDiv = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
 
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
+            // Get form values
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-                    // Get form data
-                    const name = document.getElementById('fullName').value.trim();
-                    const phone = document.getElementById('phoneNumber').value.trim();
-                    const subject = document.getElementById('subject').value.trim();
-                    const message = document.getElementById('message').value.trim();
-
-                    // Basic validation
-                    if (!name || !phone || !subject || !message) {
-                        showToast('Please fill in all fields', 'error');
-                        return;
-                    }
-
-                    // Show success toast
-                    showToast('Message Sent Successfully!', 'success');
-
-                    // Reset form
-                    this.reset();
-
-                    // Send data to your backend (optional)
-                    // You can add AJAX call here to send to server
-                    console.log('Form Data:', { name, phone, subject, message });
-                });
-            }
-
-            // ========================================
-            // Toast Notification Functions
-            // ========================================
-            function showToast(message, type = 'success') {
-                const toast = document.getElementById('toastNotification');
-                const icon = toast.querySelector('.toast-icon i');
-                const content = toast.querySelector('.toast-content p');
-
-                if (type === 'success') {
-                    icon.className = 'bi bi-check-circle-fill';
-                    content.textContent = message || 'Thank you! We\'ll get back to you within 24 hours.';
-                    toast.style.background = '#28a745';
-                } else {
-                    icon.className = 'bi bi-exclamation-circle-fill';
-                    content.textContent = message || 'Please check your input and try again.';
-                    toast.style.background = '#dc3545';
-                }
-
-                toast.classList.remove('hide');
-                toast.classList.add('show');
-
-                // Auto hide after 5 seconds
+            // Basic validation
+            if (!name || !phone || !subject || !message) {
+                statusDiv.className = 'form-status error';
+                statusDiv.innerHTML = `
+                    <i class="bi bi-exclamation-triangle-fill"></i> 
+                    <strong>Please fill in all fields.</strong>
+                `;
+                statusDiv.style.display = 'block';
+                
                 setTimeout(() => {
-                    closeToast();
+                    statusDiv.style.display = 'none';
                 }, 5000);
+                
+                return;
             }
 
-            // Make showToast globally accessible
-            window.showToast = showToast;
+            // Show loading state
+            statusDiv.className = 'form-status loading';
+            statusDiv.innerHTML = `
+                <i class="bi bi-hourglass-split"></i> 
+                Sending your message...
+            `;
+            statusDiv.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Sending...';
 
-            // Close toast function
-            window.closeToast = function() {
-                const toast = document.getElementById('toastNotification');
-                toast.classList.add('hide');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 500);
+            // Collect form data for EmailJS template
+            const templateParams = {
+                name: name,
+                phone: phone,
+                subject: subject,
+                message: message,
+                // Clinic info (for the template)
+                clinic_name: 'Zafar Homeopathic Clinic',
+                doctor_name: 'Dr. Muneeba Malik Awan',
+                clinic_phone: '+92 315 6555848',
+                clinic_email: 'contact@zafarhomeopathic.com'
             };
 
-            // Close toast on click outside
-            document.addEventListener('click', function(e) {
-                const toast = document.getElementById('toastNotification');
-                if (toast.classList.contains('show')) {
-                    // Close only if clicking outside the toast
-                    if (!toast.contains(e.target)) {
-                        closeToast();
-                    }
-                }
-            });
+            // ============================================================
+            // STEP 3: Send the email using EmailJS
+            // Replace with your actual Service ID and Template ID
+            // ============================================================
+            emailjs.send(
+                'service_6v2vzuj',    // 👈 REPLACE THIS - Get from EmailJS → Services
+                'template_np0bo79',   // 👈 REPLACE THIS - Get from EmailJS → Templates
+                templateParams
+            )
+            .then(function(response) {
+                // ============================================================
+                // SUCCESS: Email sent successfully
+                // ============================================================
+                console.log('✅ Email sent!', response.status, response.text);
 
-            // ========================================
-            // Push Notification Permission
-            // ========================================
-            // Check if browser supports notifications
-            if ('Notification' in window) {
-                // Request permission on page load
+                // Show success message
+                statusDiv.className = 'form-status success';
+                statusDiv.innerHTML = `
+                    <i class="bi bi-check-circle-fill"></i> 
+                    <strong>✅ Message Sent Successfully!</strong><br>
+                    Thank you for contacting us. We'll get back to you within 24 hours at 
+                    <strong>contact@zafarhomeopathic.com</strong>.
+                `;
+
+                // Reset the form
+                form.reset();
+
+                // Re-enable the submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-send me-2"></i> Send Message';
+
+                // Auto-hide success message after 10 seconds
                 setTimeout(() => {
-                    if (Notification.permission === 'default') {
-                        Notification.requestPermission();
-                    }
-                }, 3000);
-            }
+                    statusDiv.style.display = 'none';
+                }, 10000);
 
-            // ========================================
-            // Smooth Scroll for Quick Actions
-            // ========================================
-            document.querySelectorAll('.action-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    // Allow default behavior for links (href)
-                    // Just track clicks if needed
-                    console.log('Action clicked:', this.textContent.trim());
-                });
+            }, function(error) {
+                // ============================================================
+                // ERROR: Something went wrong
+                // ============================================================
+                console.log('❌ Failed:', error);
+
+                // Show error message
+                statusDiv.className = 'form-status error';
+                statusDiv.innerHTML = `
+                    <i class="bi bi-exclamation-triangle-fill"></i> 
+                    <strong>⚠️ Something went wrong!</strong><br>
+                    Please try again or contact us directly via WhatsApp at 
+                    <strong>+92 315 6555848</strong>.
+                    <br><br>
+                    <small>Error: ${error.text || 'Unknown error. Please check your internet connection.'}</small>
+                `;
+
+                // Re-enable the submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-send me-2"></i> Send Message';
             });
-        });
+        }
     </script>
+    <!-- ============================================ -->
+    <!-- END EMAILJS JAVASCRIPT                       -->
+    <!-- ============================================ -->
 
 </body>
 
