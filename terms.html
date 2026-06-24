@@ -63,6 +63,8 @@
 
         .header .sitename {
             color: #1a1a2e !important;
+            font-size: 1.6rem;
+            font-weight: 600;
         }
 
         .header .navmenu ul li a {
@@ -442,6 +444,10 @@
             .page-title-custom {
                 padding: 140px 0 40px;
             }
+            .header .sitename{
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
 
             .page-title-custom h1 {
                 font-size: 2.5rem;
@@ -468,6 +474,10 @@
         @media (max-width: 768px) {
             .page-title-custom {
                 padding: 120px 0 30px;
+            }
+            .header .sitename{
+                font-size: 1.2rem;
+                font-weight: 600;
             }
 
             .page-title-custom h1 {
@@ -544,6 +554,10 @@
             .page-title-custom {
                 padding: 100px 0 25px;
             }
+            .header .sitename{
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
 
             .page-title-custom h1 {
                 font-size: 1.6rem;
@@ -602,9 +616,105 @@
             .page-title-custom {
                 padding: 90px 0 20px;
             }
+            .header .sitename{
+                font-size: 1rem;
+                font-weight: 600;
+            }
 
             .page-title-custom h1 {
                 font-size: 1.4rem;
+            }
+        }
+
+        /* ====== FOOTER RESPONSIVE FIXES ====== */
+        @media (max-width: 991px) {
+            .footer-16 .footer-nav-wrapper .nav-column {
+                margin-bottom: 2rem;
+            }
+            .footer-16 .brand-section .brand-description {
+                max-width: 100%;
+            }
+            .footer-16 .contact-item {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-16 .footer-main {
+                padding: 2rem 0;
+            }
+            .footer-16 .brand-section .logo .sitename {
+                font-size: 1.3rem;
+            }
+            .footer-16 .footer-nav-wrapper .nav-column {
+                margin-bottom: 1.8rem;
+            }
+            .footer-16 .footer-nav-wrapper .nav-column h6 {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            .footer-16 .footer-nav a {
+                font-size: 0.9rem;
+                padding: 0.25rem 0;
+            }
+            .footer-16 .footer-social .social-icon {
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+                font-size: 0.9rem;
+            }
+            .footer-16 .footer-bottom .legal-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem 0.8rem;
+            }
+            .footer-16 .footer-bottom .copyright p {
+                text-align: center;
+            }
+            .footer-16 .footer-bottom .legal-links .credits {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-16 .footer-main {
+                padding: 1.5rem 0;
+            }
+            .footer-16 .brand-section .logo .sitename {
+                font-size: 1.1rem;
+            }
+            .footer-16 .brand-section .brand-description {
+                font-size: 0.9rem;
+            }
+            .footer-16 .contact-item {
+                font-size: 0.85rem;
+                padding: 0.2rem 0;
+            }
+            .footer-16 .footer-nav-wrapper .nav-column {
+                margin-bottom: 1.5rem;
+            }
+            .footer-16 .footer-nav-wrapper .nav-column h6 {
+                font-size: 0.95rem;
+            }
+            .footer-16 .footer-nav a {
+                font-size: 0.85rem;
+            }
+            .footer-16 .footer-social .social-icon {
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                font-size: 0.8rem;
+            }
+            .footer-16 .footer-bottom .legal-links {
+                gap: 0.3rem 0.6rem;
+            }
+            .footer-16 .footer-bottom .legal-links a {
+                font-size: 0.8rem;
+            }
+            .footer-16 .footer-bottom .legal-links .credits {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -651,7 +761,7 @@
                <a href="/" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <img src="assets/img/logo.png" alt="Clinic Logo" />
-            <h1 class="sitename">Zafar Homeopathic Clinic</h1>
+            <div class="sitename">Zafar Homeopathic Clinic</div>
           </a>
 
                 <nav id="navmenu" class="navmenu">

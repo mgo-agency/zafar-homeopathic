@@ -163,7 +163,10 @@
         animation: popupFadeIn 0.5s ease;
         padding: 20px;
       }
-
+.header .sitename {
+          font-size: 1.7rem;
+          font-weight: 600;
+        }
       .popup-overlay.active {
         display: flex;
       }
@@ -925,6 +928,10 @@
 
       /* Responsive Bento */
       @media (max-width: 991px) {
+        .header .sitename {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
         .bento-grid {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -948,6 +955,10 @@
       }
 
       @media (max-width: 576px) {
+        .header .sitename {
+          font-size: 1.3rem;
+          font-weight: 600;
+        }
         .bento-grid {
           grid-template-columns: 1fr 1fr;
           gap: 10px;
@@ -985,6 +996,10 @@
            GALLERY SECTION RESPONSIVE
            ======================================== */
       @media (max-width: 400px) {
+        .header .sitename {
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
         .popup-modal {
           padding: 35px 20px 30px;
         }
@@ -1098,7 +1113,7 @@
         >
           <a href="index.html" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="Clinic Logo" />
-            <h1 class="sitename">Zafar Homeopathic Clinic</h1>
+            <div class="sitename">Zafar Homeopathic Clinic</div>
           </a>
 
           <nav id="navmenu" class="navmenu">
@@ -2224,7 +2239,7 @@
                       Click on map for directions
                     </p>
                     <a
-                      href="https://www.google.com/maps/place/Zafar+Homeopathic+Store+%26+Clinic/@31.4597564,74.2442772,18.5z/"
+                      href="https://maps.app.goo.gl/UzsctowyrjL1quGE7"
                       target="_blank"
                       class="v2-btn v2-btn-primary"
                     >
