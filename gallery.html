@@ -8,7 +8,7 @@
       name="description"
       content="Explore our complete gallery of Zafar Homeopathic Clinic - See our facility, team, and the healing environment we've created for our patients."
     />
-
+    <link href="assets/img/favicon.png" rel="icon" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
@@ -337,7 +337,7 @@
       }
 
       /* ========================================
-         LIGHTBOX
+         LIGHTBOX - FIXED
          ======================================== */
       .lightbox-overlay {
         position: fixed;
@@ -391,8 +391,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
         color: #ffffff;
         width: 54px;
         height: 54px;
@@ -408,8 +408,9 @@
       }
 
       .lightbox-nav:hover {
-        background: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.25);
         transform: translateY(-50%) scale(1.1);
+        border-color: rgba(255, 255, 255, 0.4);
       }
 
       .lightbox-nav-prev {
@@ -425,13 +426,15 @@
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 0.9rem;
         font-family: 'Roboto', sans-serif;
-        background: rgba(0, 0, 0, 0.4);
-        padding: 6px 16px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 6px 20px;
         border-radius: 20px;
         backdrop-filter: blur(4px);
+        pointer-events: none;
+        z-index: 1;
       }
 
       @keyframes fadeIn {
@@ -531,6 +534,12 @@
         .lightbox-nav-next {
           right: 10px;
         }
+
+        .lightbox-close {
+          font-size: 32px;
+          top: 12px;
+          right: 16px;
+        }
       }
 
       @media (max-width: 480px) {
@@ -574,12 +583,6 @@
 
         .lightbox-overlay {
           padding: 20px;
-        }
-
-        .lightbox-close {
-          font-size: 32px;
-          top: 12px;
-          right: 16px;
         }
       }
     </style>
@@ -634,7 +637,7 @@
     </section>
 
     <!-- ======================================== -->
-    <!-- LIGHTBOX                                 -->
+    <!-- LIGHTBOX - FIXED                         -->
     <!-- ======================================== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
       <button class="lightbox-close" id="lightboxClose">
@@ -663,16 +666,13 @@
     </footer>
 
     <!-- ======================================== -->
-    <!-- JAVASCRIPT - LOADS ALL IMAGES            -->
+    <!-- JAVASCRIPT - FIXED LIGHTBOX              -->
     <!-- ======================================== -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
 
         // ========================================
         // IMAGE CONFIGURATION
-        // ========================================
-        // Add ALL your gallery images here
-        // Just add the path and a label for each image
         // ========================================
         const galleryImages = [
           // Your existing 7 images
@@ -683,10 +683,9 @@
           { path: 'assets/img/gallery/pic5.jpeg', label: 'Our Team' },
           { path: 'assets/img/gallery/pic6.jpeg', label: 'Dr. Muneeba Malik Awan' },
           { path: 'assets/img/gallery/pic7.jpeg', label: 'Health Awareness Camp' },
+
           
-          // Add MORE images here as the client provides them
-          // Just uncomment and add your images:
-          
+          // ADD MORE IMAGES HERE as the client provides them
           { path: 'assets/img/gallery/pic8.jpeg', label: 'Clinic Interior' },
           { path: 'assets/img/gallery/pic9.jpeg', label: 'Treatment Room' },
           { path: 'assets/img/gallery/pic10.jpeg', label: 'Reception Area' },
@@ -695,21 +694,24 @@
           { path: 'assets/img/gallery/pic13.jpeg', label: 'Team Meeting' },
           { path: 'assets/img/gallery/pic14.jpeg', label: 'Clinic Front' },
           { path: 'assets/img/gallery/pic15.jpeg', label: 'Consultation in Progress' },
-          { path: 'assets/img/gallery/pic16.jpeg', label: 'Clinic Interior' },
-          { path: 'assets/img/gallery/pic17.jpeg', label: 'Treatment Room' },
-          { path: 'assets/img/gallery/pic18.jpeg', label: 'Reception Area' },
-          { path: 'assets/img/gallery/pic19.jpeg', label: 'Pharmacy' },
-          { path: 'assets/img/gallery/pic20.jpeg', label: 'Patient Care' },
-       
-          
-          // Add as many as you want - the grid will auto-adapt!
+          { path: 'assets/img/gallery/pic16.jpeg', label: 'Pharmacy' },
+          { path: 'assets/img/gallery/pic17.jpeg', label: 'Patient Care' },
+          { path: 'assets/img/gallery/pic18.jpeg', label: 'Team Meeting' },
+          { path: 'assets/img/gallery/pic19.jpeg', label: 'Clinic Front' },
+          { path: 'assets/img/gallery/pic20.jpeg', label: 'Consultation in Progress' },
+
         ];
+
+        // ========================================
+        // STATE
+        // ========================================
+        let currentIndex = 0;
+        let allImages = [];
 
         // ========================================
         // GENERATE BENTO GRID
         // ========================================
         function getSizeClass(index, total) {
-          // Smart sizing based on position
           if (total <= 3) {
             const sizes = ['large', 'wide', 'tall'];
             return sizes[index % sizes.length] || 'small';
@@ -719,7 +721,6 @@
             return patterns[index % patterns.length] || 'small';
           }
           
-          // For more images, use balanced pattern
           const basePatterns = [
             'large', 'wide', 'tall', 'small', 'small',
             'wide', 'tall', 'small', 'small', 'large',
@@ -730,7 +731,6 @@
           
           let size = basePatterns[index % basePatterns.length] || 'small';
           
-          // Prevent large next to large
           if (index > 0) {
             const prevSize = getSizeClass(index - 1, total);
             if (prevSize === 'large' && size === 'large') size = 'wide';
@@ -746,23 +746,22 @@
           
           if (!container) return;
           
+          allImages = images;
+          
           if (images.length === 0) {
             container.innerHTML = `
               <div class="text-center py-5" style="grid-column: 1 / -1;">
                 <i class="bi bi-images" style="font-size: 3rem; color: #dee2e6;"></i>
                 <p class="mt-3 text-muted">No gallery images found.</p>
-                <small class="text-muted">Add images to the galleryImages array in the JavaScript.</small>
               </div>
             `;
             return;
           }
           
-          // Update image count
           if (countDisplay) {
             countDisplay.textContent = images.length;
           }
           
-          // Generate HTML for all images
           let html = '';
           images.forEach((image, index) => {
             const sizeClass = getSizeClass(index, images.length);
@@ -785,40 +784,30 @@
           
           container.innerHTML = html;
           
-          // Setup click handlers for lightbox
-          setupLightboxHandlers(images);
-        }
-
-        // ========================================
-        // LIGHTBOX
-        // ========================================
-        let currentImageIndex = 0;
-        let lightboxImages = [];
-
-        function setupLightboxHandlers(images) {
-          lightboxImages = images;
-          
-          const items = document.querySelectorAll('.bento-item');
-          items.forEach((item, index) => {
+          // Setup click handlers
+          document.querySelectorAll('.bento-item').forEach((item, index) => {
             item.addEventListener('click', function() {
               openLightbox(index);
             });
           });
         }
 
+        // ========================================
+        // LIGHTBOX - FIXED
+        // ========================================
         function openLightbox(index) {
-          currentImageIndex = index;
+          currentIndex = index;
           const overlay = document.getElementById('lightboxOverlay');
           const image = document.getElementById('lightboxImage');
           const counter = document.getElementById('lightboxCounter');
           
           if (!overlay || !image) return;
           
-          image.src = lightboxImages[index].path;
-          image.alt = lightboxImages[index].label || 'Gallery Image';
+          image.src = allImages[index].path;
+          image.alt = allImages[index].label || 'Gallery Image';
           
           if (counter) {
-            counter.textContent = `${index + 1} / ${lightboxImages.length}`;
+            counter.textContent = `${index + 1} / ${allImages.length}`;
           }
           
           overlay.classList.add('active');
@@ -834,77 +823,81 @@
         }
 
         function navigateLightbox(direction) {
-          if (lightboxImages.length === 0) return;
+          if (allImages.length === 0) return;
           
-          let newIndex = currentImageIndex + direction;
-          if (newIndex < 0) newIndex = lightboxImages.length - 1;
-          if (newIndex >= lightboxImages.length) newIndex = 0;
+          let newIndex = currentIndex + direction;
+          if (newIndex < 0) newIndex = allImages.length - 1;
+          if (newIndex >= allImages.length) newIndex = 0;
           
-          currentImageIndex = newIndex;
+          currentIndex = newIndex;
           
           const image = document.getElementById('lightboxImage');
           const counter = document.getElementById('lightboxCounter');
           
           if (image) {
-            image.src = lightboxImages[newIndex].path;
-            image.alt = lightboxImages[newIndex].label || 'Gallery Image';
+            image.src = allImages[newIndex].path;
+            image.alt = allImages[newIndex].label || 'Gallery Image';
           }
           
           if (counter) {
-            counter.textContent = `${newIndex + 1} / ${lightboxImages.length}`;
+            counter.textContent = `${newIndex + 1} / ${allImages.length}`;
           }
         }
 
         // ========================================
-        // LIGHTBOX EVENT LISTENERS
+        // LIGHTBOX EVENT LISTENERS - FIXED
         // ========================================
-        document.addEventListener('DOMContentLoaded', function() {
-          // Close on overlay click
-          const overlay = document.getElementById('lightboxOverlay');
-          if (overlay) {
-            overlay.addEventListener('click', function(e) {
-              if (e.target === this) {
-                closeLightbox();
-              }
-            });
-          }
-          
-          // Close button
-          const closeBtn = document.getElementById('lightboxClose');
-          if (closeBtn) {
-            closeBtn.addEventListener('click', closeLightbox);
-          }
-          
-          // Navigation
-          const prevBtn = document.getElementById('lightboxPrev');
-          const nextBtn = document.getElementById('lightboxNext');
-          
-          if (prevBtn) {
-            prevBtn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              navigateLightbox(-1);
-            });
-          }
-          
-          if (nextBtn) {
-            nextBtn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              navigateLightbox(1);
-            });
-          }
-          
-          // Keyboard shortcuts
-          document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+        // Close on overlay click
+        const overlay = document.getElementById('lightboxOverlay');
+        if (overlay) {
+          overlay.addEventListener('click', function(e) {
+            if (e.target === this) {
               closeLightbox();
             }
-            if (e.key === 'ArrowRight') {
-              navigateLightbox(1);
-            }
-            if (e.key === 'ArrowLeft') {
-              navigateLightbox(-1);
-            }
           });
+        }
+        
+        // Close button
+        const closeBtn = document.getElementById('lightboxClose');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeLightbox();
+          });
+        }
+        
+        // Previous button
+        const prevBtn = document.getElementById('lightboxPrev');
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(-1);
+          });
+        }
+        
+        // Next button
+        const nextBtn = document.getElementById('lightboxNext');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigateLightbox(1);
+          });
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+          const isOpen = document.getElementById('lightboxOverlay').classList.contains('active');
+          if (!isOpen) return;
+          
+          if (e.key === 'Escape') {
+            closeLightbox();
+          }
+          if (e.key === 'ArrowRight') {
+            navigateLightbox(1);
+          }
+          if (e.key === 'ArrowLeft') {
+            navigateLightbox(-1);
+          }
         });
 
         // ========================================
