@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gallery - Zafar Homeopathic Clinic | Dr. Muneeba Malik Awan</title>
+    <meta
+      name="description"
+      content="Explore our complete gallery of Zafar Homeopathic Clinic - See our facility, team, and the healing environment we've created for our patients."
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap & Icons -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ========================================
+         GLOBAL STYLES
+         ======================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: #f8faff;
+        color: #1a1a2e;
+      }
+
+      /* ========================================
+         HEADER / NAVIGATION
+         ======================================== */
+      .gallery-header {
+        background: #ffffff;
+        padding: 20px 0;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .gallery-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .gallery-header .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #1a1a2e;
+      }
+
+      .gallery-header .logo-area img {
+        height: 45px;
+        width: auto;
+        border-radius: 10px;
+      }
+
+      .gallery-header .logo-area .sitename {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1a1a2e;
+      }
+
+      .gallery-header .logo-area .sitename span {
+        color: #0d6efd;
+      }
+
+      .gallery-header .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        background: #0d6efd;
+        color: #ffffff;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .gallery-header .back-btn:hover {
+        background: #0b5ed7;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(13, 110, 253, 0.25);
+        color: #ffffff;
+      }
+
+      /* ========================================
+         GALLERY PAGE TITLE
+         ======================================== */
+      .gallery-page-title {
+        padding: 50px 0 30px;
+        text-align: center;
+      }
+
+      .gallery-page-title h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+      }
+
+      .gallery-page-title h1 .highlight {
+        color: #0d6efd;
+        position: relative;
+      }
+
+      .gallery-page-title h1 .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0d6efd, #6ea8fe);
+        border-radius: 2px;
+        opacity: 0.3;
+      }
+
+      .gallery-page-title p {
+        color: #6c757d;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .gallery-page-title .image-count {
+        display: inline-block;
+        background: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+        padding: 4px 16px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      /* ========================================
+         BENTO GRID - FULL PAGE
+         ======================================== */
+      .gallery-full {
+        padding: 0 0 60px;
+      }
+
+      .bento-grid-full {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: minmax(200px, auto);
+        gap: 16px;
+        grid-auto-flow: dense;
+      }
+
+      .bento-item {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #f8f9fa;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 0;
+        transform: scale(0.95);
+        animation: bentoFadeIn 0.6s ease forwards;
+      }
+
+      /* Staggered animation delays */
+      .bento-item:nth-child(1) { animation-delay: 0.02s; }
+      .bento-item:nth-child(2) { animation-delay: 0.04s; }
+      .bento-item:nth-child(3) { animation-delay: 0.06s; }
+      .bento-item:nth-child(4) { animation-delay: 0.08s; }
+      .bento-item:nth-child(5) { animation-delay: 0.10s; }
+      .bento-item:nth-child(6) { animation-delay: 0.12s; }
+      .bento-item:nth-child(7) { animation-delay: 0.14s; }
+      .bento-item:nth-child(8) { animation-delay: 0.16s; }
+      .bento-item:nth-child(9) { animation-delay: 0.18s; }
+      .bento-item:nth-child(10) { animation-delay: 0.20s; }
+      .bento-item:nth-child(11) { animation-delay: 0.22s; }
+      .bento-item:nth-child(12) { animation-delay: 0.24s; }
+      .bento-item:nth-child(13) { animation-delay: 0.26s; }
+      .bento-item:nth-child(14) { animation-delay: 0.28s; }
+      .bento-item:nth-child(15) { animation-delay: 0.30s; }
+      .bento-item:nth-child(16) { animation-delay: 0.32s; }
+      .bento-item:nth-child(17) { animation-delay: 0.34s; }
+      .bento-item:nth-child(18) { animation-delay: 0.36s; }
+      .bento-item:nth-child(19) { animation-delay: 0.38s; }
+      .bento-item:nth-child(20) { animation-delay: 0.40s; }
+      .bento-item:nth-child(21) { animation-delay: 0.42s; }
+      .bento-item:nth-child(22) { animation-delay: 0.44s; }
+      .bento-item:nth-child(23) { animation-delay: 0.46s; }
+      .bento-item:nth-child(24) { animation-delay: 0.48s; }
+      .bento-item:nth-child(25) { animation-delay: 0.50s; }
+
+      @keyframes bentoFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .bento-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
+        z-index: 2;
+      }
+
+      .bento-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .bento-item:hover img {
+        transform: scale(1.08);
+      }
+
+      .bento-item .bento-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 20px 18px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        color: #ffffff;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .bento-item:hover .bento-overlay {
+        opacity: 1;
+      }
+
+      .bento-item .bento-overlay h5 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .bento-item .bento-overlay p {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin-bottom: 0;
+      }
+
+      .bento-item .bento-icon-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        background: rgba(255, 255, 255, 0.9);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.4s ease;
+        color: #0d6efd;
+        font-size: 20px;
+        pointer-events: none;
+      }
+
+      .bento-item:hover .bento-icon-overlay {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* Bento Size Variations */
+      .bento-item--large {
+        grid-column: span 2;
+        grid-row: span 2;
+        min-height: 320px;
+      }
+
+      .bento-item--wide {
+        grid-column: span 2;
+        min-height: 220px;
+      }
+
+      .bento-item--tall {
+        grid-row: span 2;
+        min-height: 320px;
+      }
+
+      .bento-item--small {
+        min-height: 200px;
+      }
+
+      /* ========================================
+         FOOTER
+         ======================================== */
+      .gallery-footer {
+        background: #1a1a2e;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 30px 0;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .gallery-footer a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .gallery-footer a:hover {
+        color: #0d6efd;
+      }
+
+      /* ========================================
+         LIGHTBOX
+         ======================================== */
+      .lightbox-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 999999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        cursor: pointer;
+      }
+
+      .lightbox-overlay.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .lightbox-overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        animation: scaleIn 0.4s ease;
+        cursor: default;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 44px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+
+      .lightbox-close:hover {
+        opacity: 1;
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        font-size: 26px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+
+      .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .lightbox-nav-prev {
+        left: 20px;
+      }
+
+      .lightbox-nav-next {
+        right: 20px;
+      }
+
+      .lightbox-counter {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-family: 'Roboto', sans-serif;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 6px 16px;
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes scaleIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+
+      /* ========================================
+         RESPONSIVE
+         ======================================== */
+      @media (max-width: 1200px) {
+        .bento-grid-full {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 991px) {
+        .bento-grid-full {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+
+        .bento-item--large {
+          grid-column: span 2;
+          grid-row: span 1;
+          min-height: 240px;
+        }
+
+        .bento-item--tall {
+          grid-row: span 1;
+          min-height: 240px;
+        }
+
+        .gallery-page-title h1 {
+          font-size: 2.2rem;
+        }
+
+        .gallery-header .logo-area .sitename {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .bento-grid-full {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          grid-auto-rows: minmax(160px, auto);
+        }
+
+        .bento-item--large {
+          grid-column: span 2;
+          min-height: 200px;
+        }
+
+        .bento-item--wide {
+          grid-column: span 2;
+          min-height: 180px;
+        }
+
+        .bento-item--tall {
+          min-height: 200px;
+        }
+
+        .gallery-page-title h1 {
+          font-size: 1.8rem;
+        }
+
+        .gallery-page-title p {
+          font-size: 0.95rem;
+        }
+
+        .gallery-header .container {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .gallery-header .back-btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .lightbox-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+
+        .lightbox-nav-prev {
+          left: 10px;
+        }
+
+        .lightbox-nav-next {
+          right: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .bento-grid-full {
+          gap: 8px;
+          grid-auto-rows: minmax(130px, auto);
+        }
+
+        .bento-item--large {
+          min-height: 160px;
+        }
+
+        .bento-item--wide {
+          min-height: 140px;
+        }
+
+        .bento-item--tall {
+          min-height: 160px;
+        }
+
+        .bento-item--small {
+          min-height: 130px;
+        }
+
+        .gallery-page-title h1 {
+          font-size: 1.5rem;
+        }
+
+        .gallery-header .logo-area img {
+          height: 35px;
+        }
+
+        .gallery-header .logo-area .sitename {
+          font-size: 0.95rem;
+        }
+
+        .gallery-header .back-btn {
+          padding: 8px 16px;
+          font-size: 0.85rem;
+        }
+
+        .lightbox-overlay {
+          padding: 20px;
+        }
+
+        .lightbox-close {
+          font-size: 32px;
+          top: 12px;
+          right: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ======================================== -->
+    <!-- HEADER WITH BACK BUTTON                   -->
+    <!-- ======================================== -->
+    <header class="gallery-header">
+      <div class="container">
+        <a href="index.html" class="logo-area">
+          <img src="assets/img/logo.jpeg" alt="Zafar Homeopathic Clinic Logo" />
+          <span class="sitename">Zafar <span>Homeopathic</span></span>
+        </a>
+        <a href="index.html" class="back-btn">
+          <i class="bi bi-arrow-left"></i>
+          Back to Home
+        </a>
+      </div>
+    </header>
+
+    <!-- ======================================== -->
+    <!-- PAGE TITLE                               -->
+    <!-- ======================================== -->
+    <section class="gallery-page-title">
+      <div class="container">
+        <h1>
+          Our Complete <span class="highlight">Gallery</span>
+        </h1>
+        <p>
+          Explore our welcoming space, dedicated team, and the healing
+          environment we've created for our patients.
+        </p>
+        <span class="image-count">
+          <i class="bi bi-images me-1"></i>
+          <span id="imageCount">0</span> Photos
+        </span>
+      </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- FULL BENTO GRID - ALL IMAGES             -->
+    <!-- ======================================== -->
+    <section class="gallery-full">
+      <div class="container">
+        <div class="bento-grid-full" id="bentoGridFull">
+          <!-- All images will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- LIGHTBOX                                 -->
+    <!-- ======================================== -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+      <button class="lightbox-close" id="lightboxClose">
+        <i class="bi bi-x"></i>
+      </button>
+      <button class="lightbox-nav lightbox-nav-prev" id="lightboxPrev">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-nav-next" id="lightboxNext">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      <img id="lightboxImage" src="" alt="Gallery Image" />
+      <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+    </div>
+
+    <!-- ======================================== -->
+    <!-- FOOTER                                  -->
+    <!-- ======================================== -->
+    <footer class="gallery-footer">
+      <div class="container">
+        <p>
+          &copy; 2026 <a href="index.html">Zafar Homeopathic Store &amp; Clinic</a>.
+          All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ======================================== -->
+    <!-- JAVASCRIPT - LOADS ALL IMAGES            -->
+    <!-- ======================================== -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+        // ========================================
+        // IMAGE CONFIGURATION
+        // ========================================
+        // Add ALL your gallery images here
+        // Just add the path and a label for each image
+        // ========================================
+        const galleryImages = [
+          // Your existing 7 images
+          { path: 'assets/img/gallery/pic1.jpeg', label: 'Clinic Exterior' },
+          { path: 'assets/img/gallery/pic2.jpeg', label: 'Waiting Area' },
+          { path: 'assets/img/gallery/pic3.jpeg', label: 'Consultation Room' },
+          { path: 'assets/img/gallery/pic4.jpeg', label: 'Medicine Display' },
+          { path: 'assets/img/gallery/pic5.jpeg', label: 'Our Team' },
+          { path: 'assets/img/gallery/pic6.jpeg', label: 'Dr. Muneeba Malik Awan' },
+          { path: 'assets/img/gallery/pic7.jpeg', label: 'Health Awareness Camp' },
+          
+          // Add MORE images here as the client provides them
+          // Just uncomment and add your images:
+          
+          { path: 'assets/img/gallery/pic8.jpeg', label: 'Clinic Interior' },
+          { path: 'assets/img/gallery/pic9.jpeg', label: 'Treatment Room' },
+          { path: 'assets/img/gallery/pic10.jpeg', label: 'Reception Area' },
+          { path: 'assets/img/gallery/pic11.jpeg', label: 'Pharmacy' },
+          { path: 'assets/img/gallery/pic12.jpeg', label: 'Patient Care' },
+          { path: 'assets/img/gallery/pic13.jpeg', label: 'Team Meeting' },
+          { path: 'assets/img/gallery/pic14.jpeg', label: 'Clinic Front' },
+          { path: 'assets/img/gallery/pic15.jpeg', label: 'Consultation in Progress' },
+          { path: 'assets/img/gallery/pic16.jpeg', label: 'Clinic Interior' },
+          { path: 'assets/img/gallery/pic17.jpeg', label: 'Treatment Room' },
+          { path: 'assets/img/gallery/pic18.jpeg', label: 'Reception Area' },
+          { path: 'assets/img/gallery/pic19.jpeg', label: 'Pharmacy' },
+          { path: 'assets/img/gallery/pic20.jpeg', label: 'Patient Care' },
+       
+          
+          // Add as many as you want - the grid will auto-adapt!
+        ];
+
+        // ========================================
+        // GENERATE BENTO GRID
+        // ========================================
+        function getSizeClass(index, total) {
+          // Smart sizing based on position
+          if (total <= 3) {
+            const sizes = ['large', 'wide', 'tall'];
+            return sizes[index % sizes.length] || 'small';
+          }
+          if (total <= 5) {
+            const patterns = ['large', 'wide', 'tall', 'small', 'small'];
+            return patterns[index % patterns.length] || 'small';
+          }
+          
+          // For more images, use balanced pattern
+          const basePatterns = [
+            'large', 'wide', 'tall', 'small', 'small',
+            'wide', 'tall', 'small', 'small', 'large',
+            'small', 'small', 'wide', 'tall', 'small',
+            'small', 'wide', 'tall', 'small', 'large',
+            'small', 'small', 'wide', 'tall', 'small'
+          ];
+          
+          let size = basePatterns[index % basePatterns.length] || 'small';
+          
+          // Prevent large next to large
+          if (index > 0) {
+            const prevSize = getSizeClass(index - 1, total);
+            if (prevSize === 'large' && size === 'large') size = 'wide';
+            if (prevSize === 'tall' && size === 'tall') size = 'small';
+          }
+          
+          return size;
+        }
+
+        function renderGallery(images) {
+          const container = document.getElementById('bentoGridFull');
+          const countDisplay = document.getElementById('imageCount');
+          
+          if (!container) return;
+          
+          if (images.length === 0) {
+            container.innerHTML = `
+              <div class="text-center py-5" style="grid-column: 1 / -1;">
+                <i class="bi bi-images" style="font-size: 3rem; color: #dee2e6;"></i>
+                <p class="mt-3 text-muted">No gallery images found.</p>
+                <small class="text-muted">Add images to the galleryImages array in the JavaScript.</small>
+              </div>
+            `;
+            return;
+          }
+          
+          // Update image count
+          if (countDisplay) {
+            countDisplay.textContent = images.length;
+          }
+          
+          // Generate HTML for all images
+          let html = '';
+          images.forEach((image, index) => {
+            const sizeClass = getSizeClass(index, images.length);
+            const label = image.label || 'Gallery Image';
+            
+            html += `
+              <div class="bento-item bento-item--${sizeClass}" data-index="${index}">
+                <img src="${image.path}" alt="${label}" loading="lazy" />
+                <div class="bento-icon-overlay">
+                  <i class="bi bi-arrows-angle-expand"></i>
+                </div>
+                ${sizeClass === 'large' ? `
+                <div class="bento-overlay">
+                  <h5>${label}</h5>
+                  <p>Featured</p>
+                </div>` : ''}
+              </div>
+            `;
+          });
+          
+          container.innerHTML = html;
+          
+          // Setup click handlers for lightbox
+          setupLightboxHandlers(images);
+        }
+
+        // ========================================
+        // LIGHTBOX
+        // ========================================
+        let currentImageIndex = 0;
+        let lightboxImages = [];
+
+        function setupLightboxHandlers(images) {
+          lightboxImages = images;
+          
+          const items = document.querySelectorAll('.bento-item');
+          items.forEach((item, index) => {
+            item.addEventListener('click', function() {
+              openLightbox(index);
+            });
+          });
+        }
+
+        function openLightbox(index) {
+          currentImageIndex = index;
+          const overlay = document.getElementById('lightboxOverlay');
+          const image = document.getElementById('lightboxImage');
+          const counter = document.getElementById('lightboxCounter');
+          
+          if (!overlay || !image) return;
+          
+          image.src = lightboxImages[index].path;
+          image.alt = lightboxImages[index].label || 'Gallery Image';
+          
+          if (counter) {
+            counter.textContent = `${index + 1} / ${lightboxImages.length}`;
+          }
+          
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          const overlay = document.getElementById('lightboxOverlay');
+          if (overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }
+
+        function navigateLightbox(direction) {
+          if (lightboxImages.length === 0) return;
+          
+          let newIndex = currentImageIndex + direction;
+          if (newIndex < 0) newIndex = lightboxImages.length - 1;
+          if (newIndex >= lightboxImages.length) newIndex = 0;
+          
+          currentImageIndex = newIndex;
+          
+          const image = document.getElementById('lightboxImage');
+          const counter = document.getElementById('lightboxCounter');
+          
+          if (image) {
+            image.src = lightboxImages[newIndex].path;
+            image.alt = lightboxImages[newIndex].label || 'Gallery Image';
+          }
+          
+          if (counter) {
+            counter.textContent = `${newIndex + 1} / ${lightboxImages.length}`;
+          }
+        }
+
+        // ========================================
+        // LIGHTBOX EVENT LISTENERS
+        // ========================================
+        document.addEventListener('DOMContentLoaded', function() {
+          // Close on overlay click
+          const overlay = document.getElementById('lightboxOverlay');
+          if (overlay) {
+            overlay.addEventListener('click', function(e) {
+              if (e.target === this) {
+                closeLightbox();
+              }
+            });
+          }
+          
+          // Close button
+          const closeBtn = document.getElementById('lightboxClose');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox);
+          }
+          
+          // Navigation
+          const prevBtn = document.getElementById('lightboxPrev');
+          const nextBtn = document.getElementById('lightboxNext');
+          
+          if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              navigateLightbox(-1);
+            });
+          }
+          
+          if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              navigateLightbox(1);
+            });
+          }
+          
+          // Keyboard shortcuts
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              closeLightbox();
+            }
+            if (e.key === 'ArrowRight') {
+              navigateLightbox(1);
+            }
+            if (e.key === 'ArrowLeft') {
+              navigateLightbox(-1);
+            }
+          });
+        });
+
+        // ========================================
+        // INITIALIZE
+        // ========================================
+        renderGallery(galleryImages);
+
+      });
+    </script>
+
+  </body>
+</html>
